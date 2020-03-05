@@ -1,13 +1,15 @@
-    let player ={
-    x: 360,
-    y: 360,
-    moveSpeed:5,
-    border: 15,
+    class player {
+      constructor() {
+        this.x = 360;
+        this.y = 360;
+        this.moveSpeed = 5;
+        this.border = 15;
+      }
 
-    display: function() {
-      ellipse(this.x, this.y, 30, 30);
-    },
-    move: function(){
+      display() {
+        ellipse(this.x, this.y, 30, 30);
+      };
+      move() {
       //W
       if(keyIsDown(87)&&this.y>this.border){
         this.y -= this.moveSpeed;
@@ -24,9 +26,5 @@
       if(keyIsDown(68)&&this.x<width-this.border){
         this.x += this.moveSpeed;
       }
-    },
-
-    
+    }
   }
-
-

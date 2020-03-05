@@ -1,6 +1,6 @@
-function preload(){
-  playerSprite = loadImage("Assets/crime.png");
-}
+/*function preload(){
+ // playerSprite = loadImage("Assets/crime.png");
+}*/
 
 function setup() {
   createCanvas(720, 720);
@@ -8,6 +8,7 @@ function setup() {
   noCursor();
   newEnemy = new enemy();
   defaultItem = new item();
+  newPlayer = new player();
 }
 
 function draw() {
@@ -16,8 +17,8 @@ function draw() {
 
   //Player
   fill(255);
-  player.display();
-  player.move();
+  newPlayer.display();
+  newPlayer.move();
 
   //item
   fill(55);

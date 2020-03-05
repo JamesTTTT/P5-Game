@@ -21,6 +21,6 @@ class enemy {
                 this.directiony *= -1;
             }
         }
-    };
+    }
 
 
