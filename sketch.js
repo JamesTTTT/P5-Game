@@ -1,12 +1,13 @@
-function preload() {
-  
+function preload(){
+  playerSprite = loadImage("Assets/crime.png");
 }
-
 
 function setup() {
   createCanvas(720, 720);
   frameRate(60);
   noCursor();
+  newEnemy = new enemy();
+  defaultItem = new item();
 }
 
 function draw() {
@@ -17,15 +18,18 @@ function draw() {
   fill(255);
   player.display();
   player.move();
-  //line(player.x, player.y, hand.x, hand.y);
 
   //item
   fill(55);
   stroke(255);
-  item.display();
-  //item.interact();
+  defaultItem.display();
 
+  //enemy
+  fill(22,22,22);
+  newEnemy.display();
+  newEnemy.move();
 
+ 
   //Hand
   fill(0);
   hand.display();
@@ -33,10 +37,13 @@ function draw() {
 
   }
 
- function mouseDragged() {
-  let d = dist(item.x,item.y,hand.x,hand.y);
-   if(d<17){
-    item.interact(); 
+  //item controll
+  function mouseDragged() {
+  let d = dist(defaultItem.x,defaultItem.y,hand.x,hand.y);
+   if(d<19){
+    defaultItem.interact(); 
+   } else {
+    defaultItem.idle();
    }
     
   }
