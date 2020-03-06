@@ -1,4 +1,4 @@
-class item {
+class Item {
     constructor() {
         this.x = 360;
         this.y = 100;

@@ -1,4 +1,4 @@
-    class player {
+    class Player {
       constructor() {
         this.x = 360;
         this.y = 360;
@@ -9,7 +9,7 @@
       }
 
       display() {
-        ellipse(this.x, this.y, 30, 30);
+        ellipse(this.x, this.y, this.size);
         push();
         translate(this.x,this.y);
         image(this.sprite,-this.size/2,-this.size/2);

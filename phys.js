@@ -1,4 +1,4 @@
-class enemy {
+class Enemy {
     constructor() {
         this.x = 10;
         this.y = 100;
