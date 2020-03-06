@@ -2,12 +2,18 @@
       constructor() {
         this.x = 360;
         this.y = 360;
+        this.size = 40;
         this.moveSpeed = 5;
         this.border = 15;
+        this.sprite = playerSprite;
       }
 
       display() {
         ellipse(this.x, this.y, 30, 30);
+        push();
+        translate(this.x,this.y);
+        image(this.sprite,-this.size/2,-this.size/2);
+        pop();
       };
       move() {
       //W

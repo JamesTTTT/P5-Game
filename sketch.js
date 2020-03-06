@@ -1,6 +1,7 @@
-/*function preload(){
- // playerSprite = loadImage("Assets/crime.png");
-}*/
+function preload(){
+ playerSprite = loadImage("Assets/crime.png");
+ groundSprite = loadImage("Assets/Ground.png");
+}
 
 function setup() {
   createCanvas(720, 720);
@@ -12,8 +13,10 @@ function setup() {
 }
 
 function draw() {
+  //Game Background
   background(20);
   noStroke();
+  image(groundSprite,0,0);
 
   //Player
   fill(255);
@@ -49,7 +52,9 @@ function draw() {
     
   }
 
-
+  //Sprites
+let playerSprite;
+let groundSprite;
 
 
 
