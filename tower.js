@@ -2,7 +2,7 @@ class Tower {
     constructor(xPos,yPos, pos){
         this.x = xPos;
         this.y = yPos;
-        this.size = 50;
+        this.size = 70;
         this.position = pos;
 
         switch(this.position) {

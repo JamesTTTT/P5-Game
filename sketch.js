@@ -1,6 +1,7 @@
 function preload(){
  playerSprite = loadImage("Assets/crime.png");
  groundSprite = loadImage("Assets/Ground.png");
+ itemSprite = loadImage("Assets/CrimsonBlade.png")
 }
 
 let towers = [];
@@ -13,6 +14,9 @@ function setup() {
   defaultItem = new Item();
   newPlayer = new Player();
   towers.push(new Tower(50,50, "topLeft"));
+  towers.push(new Tower(670,50,"topRight"));
+  towers.push(new Tower(50,670,"bottomLeft"));
+  towers.push(new Tower(670,670,"bottomRight"));
 }
 
 function draw() {
@@ -57,7 +61,7 @@ function draw() {
    if(d<19){
     defaultItem.interact(); 
    } else {
-    defaultItem.idle();
+   defaultItem.idle();
    }
     
   }
@@ -65,6 +69,7 @@ function draw() {
   //Sprites
 let playerSprite;
 let groundSprite;
+let itemSprite;
 
 
 
