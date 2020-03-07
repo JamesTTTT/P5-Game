@@ -1,7 +1,7 @@
 function preload(){
  playerSprite = loadImage("Assets/crime.png");
  groundSprite = loadImage("Assets/Ground.png");
- itemSprite = loadImage("Assets/CrimsonBlade.png")
+ itemSprite = loadImage("Assets/Crimson.png")
 }
 
 let towers = [];
