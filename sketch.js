@@ -1,7 +1,9 @@
 function preload(){
  playerSprite = loadImage("Assets/crime.png");
  groundSprite = loadImage("Assets/Ground.png");
- itemSprite = loadImage("Assets/Crimson.png")
+ itemSprite = loadImage("Assets/Crimson.png");
+ unclickedCursor = loadImage("Assets/UnclickedCursor.png");
+ clickedCursor = loadImage("Assets/ClickedCursor.png");
 }
 
 let towers = [];
@@ -10,6 +12,7 @@ function setup() {
   createCanvas(720, 720);
   frameRate(60);
   noCursor();
+  newCursor = new hand();
   newEnemy = new Enemy();
   defaultItem = new Item();
   newPlayer = new Player();
@@ -43,8 +46,8 @@ function draw() {
  
   //Hand
   fill(0);
-  hand.display();
-  hand.move(); 
+  newCursor.display();
+  newCursor.move(); 
 
   //Tower
   fill(255);
@@ -57,7 +60,7 @@ function draw() {
 
   //item controll
   function mouseDragged() {
-  let d = dist(defaultItem.x,defaultItem.y,hand.x,hand.y);
+  let d = dist(defaultItem.x,defaultItem.y,newCursor.x,newCursor.y);
    if(d<19){
     defaultItem.interact(); 
    } else {
@@ -70,6 +73,11 @@ function draw() {
 let playerSprite;
 let groundSprite;
 let itemSprite;
+
+//Cursor Sprites
+let unclickedCursor;
+let clickedCursor;
+
 
 
 
