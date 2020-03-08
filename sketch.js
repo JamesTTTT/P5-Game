@@ -12,6 +12,8 @@ function setup() {
   createCanvas(720, 720);
   frameRate(60);
   noCursor();
+  playGame = createButton('Play');
+  gameMenu= new menu();
   newCursor = new hand();
   newEnemy = new Enemy();
   defaultItem = new Item();
@@ -20,6 +22,7 @@ function setup() {
   towers.push(new Tower(670,50,"topRight"));
   towers.push(new Tower(50,670,"bottomLeft"));
   towers.push(new Tower(670,670,"bottomRight"));
+  gameMenu.display();
 }
 
 function draw() {
@@ -43,19 +46,22 @@ function draw() {
   newEnemy.display();
   newEnemy.move();
 
- 
-  //Hand
-  fill(0);
-  newCursor.display();
-  newCursor.move(); 
-
   //Tower
   fill(255);
   for(let i = 0; i < towers.length; i++) {
     towers[i].display();
   }
+  //menu
 
+  //Hand
+  fill(0);
+  newCursor.display();
+  newCursor.move();
+  }
 
+  //play button
+  function mousePressed(playGame){
+    gameMenu.play();
   }
 
   //item controll
@@ -69,7 +75,10 @@ function draw() {
     
   }
 
-  //Sprites
+//variables
+let playGame;
+
+//Sprites
 let playerSprite;
 let groundSprite;
 let itemSprite;
