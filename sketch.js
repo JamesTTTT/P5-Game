@@ -1,5 +1,5 @@
 function preload(){
- playerSprite = loadImage("Assets/crime.png");
+ playerSprite = loadImage("Assets/PinkLord2.png");
  groundSprite = loadImage("Assets/Ground.png");
  itemSprite = loadImage("Assets/Crimson.png");
  unclickedCursor = loadImage("Assets/UnclickedCursor.png");

@@ -1,15 +1,14 @@
     class Player {
       constructor() {
-        this.x = 360;
-        this.y = 360;
-        this.size = 40;
-        this.moveSpeed = 3;
+        this.x = width/2;
+        this.y = height/2;
+        this.size = 100;
+        this.moveSpeed = 5;
         this.border = 15;
         this.sprite = playerSprite;
       }
 
       display() {
-        ellipse(this.x, this.y, this.size);
         push();
         translate(this.x,this.y);
         image(this.sprite,-this.size/2,-this.size/2);
