@@ -14,6 +14,7 @@ class menu {
         playGame.show();
         playGame.position(this.x-50, this.y-20);
         playGame.size(100, 40);
+        playGame.mousePressed(this.play)
         pop();
         noLoop();
     }

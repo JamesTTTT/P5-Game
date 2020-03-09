@@ -7,6 +7,7 @@ function preload(){
 }
 
 let towers = [];
+let startGame = false;
 
 function setup() {
   createCanvas(720, 720);
@@ -46,12 +47,13 @@ function draw() {
   newEnemy.display();
   newEnemy.move();
 
-  //Tower
+  //tower
   fill(255);
   for(let i = 0; i < towers.length; i++) {
     towers[i].display();
   }
   //menu
+  
 
   //Hand
   fill(0);
@@ -59,15 +61,10 @@ function draw() {
   newCursor.move();
   }
 
-  //play button
-  function mousePressed(playGame){
-    gameMenu.play();
-  }
-
   //item controll
   function mouseDragged() {
   let d = dist(defaultItem.x,defaultItem.y,newCursor.x,newCursor.y);
-   if(d<19){
+   if(d<60){
     defaultItem.interact(); 
    } else {
    defaultItem.idle();
