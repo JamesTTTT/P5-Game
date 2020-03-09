@@ -5,8 +5,8 @@ class Enemy {
         this.r = 20;
         this.speedx = 1;
         this.speedy = 1;
-        this.directionx = 10
-        this.directiony = 1
+        this.directionx = 10;
+        this.directiony = 1;
     }
         display() {
             ellipse(this.x, this.y, this.r, this.r);
@@ -22,5 +22,3 @@ class Enemy {
             }
         }
     }
-
-

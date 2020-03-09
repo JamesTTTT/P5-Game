@@ -18,13 +18,6 @@ class Item {
             this.x = mouseX;
             this.y = mouseY;
         };
-        idle() {
-           push();
-           this.r+= 0.02; 
-           //translate(width/2, height/2);
-           rotate(this.r);
-           pop(); 
-        }
 
     }
 
