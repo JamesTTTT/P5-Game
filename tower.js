@@ -2,7 +2,7 @@ class Tower {
     constructor(xPos,yPos, pos){
         this.x = xPos;
         this.y = yPos;
-        this.size = 70;
+        this.size = 128;
         this.position = pos;
 
         switch(this.position) {
@@ -18,5 +18,6 @@ class Tower {
     }
     display(){
         ellipse(this.x, this.y, this.size);
+        //image(this.sprite, this.x, this.y, this.size);
     }
 }

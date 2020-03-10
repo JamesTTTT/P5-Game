@@ -2,6 +2,7 @@ function preload(){
  playerSprite = loadImage("Assets/PinkLord2.png");
  groundSprite = loadImage("Assets/Ground.png");
  itemSprite = loadImage("Assets/Crimson.png");
+ darkTower= loadImage("Assets/darktower.png")
  unclickedCursor = loadImage("Assets/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/ClickedCursor.png");
 }
@@ -18,10 +19,10 @@ function setup() {
   newEnemy = new Enemy();
   defaultItem = new Item();
   newPlayer = new Player();
-  towers.push(new Tower(50,50, "topLeft"));
-  towers.push(new Tower(670,50,"topRight"));
-  towers.push(new Tower(50,670,"bottomLeft"));
-  towers.push(new Tower(670,670,"bottomRight"));
+  towers.push(new Tower(70,70, "topLeft"));
+  towers.push(new Tower(650,70,"topRight"));
+  towers.push(new Tower(70,650,"bottomLeft"));
+  towers.push(new Tower(650,650,"bottomRight"));
   gameMenu.display();
 }
 
@@ -60,8 +61,8 @@ function draw() {
 
   //item controll
   function mouseDragged() {
-  let d = dist(defaultItem.x,defaultItem.y,newCursor.x,newCursor.y);
-   if(d<60){
+  let d1 = dist(defaultItem.x,defaultItem.y,newCursor.x,newCursor.y);
+   if(d1<60){
     defaultItem.interact(); 
    }
     
@@ -74,6 +75,7 @@ let playGame;
 let playerSprite;
 let groundSprite;
 let itemSprite;
+let darkTower;
 
 //Cursor Sprites
 let unclickedCursor;
