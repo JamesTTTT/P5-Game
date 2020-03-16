@@ -14,7 +14,7 @@ class hand {
         image(this.clickedSprite,-this.size/2,-this.size/2);
         pop();
       }
-    } else {
+    } else{
       push();
       translate(this.x, this.y)
       image(this.unclickedSprite,-this.size/2,-this.size/2);
@@ -22,7 +22,7 @@ class hand {
     }
   };
   move(){
-    this.x= mouseX;
-      this.y= mouseY;
+    this.x = mouseX;
+    this.y = mouseY;
   }
 }

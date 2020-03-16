@@ -5,6 +5,7 @@ class Item {
         this.w = 30;
         this.h = 30;
         this.r = 0;
+        this.ease = 0.1;
         this.size=64;
         this.sprite = itemSprite;
     }
@@ -18,6 +19,16 @@ class Item {
             this.x = mouseX;
             this.y = mouseY;
         };
+        pull(){
+            this.targetX = newCursor.x;
+            this.targetY = newCursor.y;
+            this.distX = this.targetX-this.x;
+            this.distY = this.targetY-this.y;
+            if(keyIsDown(gameControls[4])){
+                this.x += this.distX*this.ease;
+                this.y += this.distY*this.ease;
+            }
+        }
 
     }
 

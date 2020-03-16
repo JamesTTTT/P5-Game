@@ -14,21 +14,22 @@
         image(this.sprite,-this.size/2,-this.size/2);
         pop();
       };
+
       move() {
       //W
-      if(keyIsDown(87)&&this.y>this.border){
+      if(keyIsDown(gameControls[0])&&this.y>this.border){
         this.y -= this.moveSpeed;
       }
       //S
-      if(keyIsDown(83)&&this.y<height-this.border){
+      if(keyIsDown(gameControls[1])&&this.y<height-this.border){
         this.y += this.moveSpeed;
       }
       //A
-      if(keyIsDown(65)&&this.x>this.border){
+      if(keyIsDown(gameControls[2])&&this.x>this.border){
         this.x -= this.moveSpeed;
       }
       //D
-      if(keyIsDown(68)&&this.x<width-this.border){
+      if(keyIsDown(gameControls[3])&&this.x<width-this.border){
         this.x += this.moveSpeed;
       }
     }

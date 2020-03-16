@@ -17,8 +17,8 @@ function setup() {
   gameMenu= new menu();
   newCursor = new hand();
   newEnemy = new Enemy();
-  defaultItem = new Item();
-  newPlayer = new Player();
+  defaultItem = new Item(gameControls);
+  newPlayer = new Player(gameControls);
   towers.push(new Tower(70,70, "topLeft"));
   towers.push(new Tower(650,70,"topRight"));
   towers.push(new Tower(70,650,"bottomLeft"));
@@ -52,6 +52,7 @@ function draw() {
   fill(55);
   stroke(255);
   defaultItem.display();
+  defaultItem.pull();
 
   //Hand
   fill(0);
@@ -70,6 +71,7 @@ function draw() {
 
 //variables
 let playGame;
+let gameControls = [87,83,65,68,69] //wasde
 
 //Sprites
 let playerSprite;
