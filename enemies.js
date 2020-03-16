@@ -1,6 +1,33 @@
 class Enemy {
-    constructor() {
+    constructor(){
+        switch(spawn){
+            case 0:
+                this.x = 70;
+                this.y = 70;
+                break;
+            case 1:
+                this.x = 650;
+                this.y = 70;
+                break;
+            case 2:
+                this.x = 70;
+                this.y = 650;
+                break;
+            case 3:
+                this.x = 650;
+                this.y = 650;
+                break;
+        }
+        this.width= 20;
         
+    }
+}
+
+
+
+
+/*class Enemy {
+    constructor() {
         this.x = 10;
         this.y = 100;
         this.r = 20;
@@ -23,4 +50,4 @@ class Enemy {
             }
         }
 
-    }
+    }*/
