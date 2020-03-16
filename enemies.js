@@ -1,5 +1,6 @@
 class Enemy {
     constructor() {
+        
         this.x = 10;
         this.y = 100;
         this.r = 20;
@@ -9,7 +10,7 @@ class Enemy {
         this.directiony = 1;
     }
         display() {
-            ellipse(this.x, this.y, this.r, this.r);
+            ellipse(this.x, this.y, this.r);
         };
         move() {
             this.x = this.x + this.speedx * this.directionx;
@@ -21,4 +22,5 @@ class Enemy {
                 this.directiony *= -1;
             }
         }
+
     }

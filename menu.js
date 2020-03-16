@@ -20,6 +20,7 @@ class menu {
     }
     play(){
         playGame.hide();
+        playGame.hide();
         loop();
     }
 }

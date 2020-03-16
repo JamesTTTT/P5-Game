@@ -2,12 +2,14 @@ function preload(){
  playerSprite = loadImage("Assets/PinkLord2.png");
  groundSprite = loadImage("Assets/Ground.png");
  itemSprite = loadImage("Assets/Crimson.png");
- darkTower= loadImage("Assets/darktower.png")
+ towerSprite1= loadImage("Assets/DarkTower.png")
+ towerSprite2= loadImage("Assets/ToxicTower.png")
+ towerSprite3= loadImage("Assets/RedTower.png")
+ towerSprite4= loadImage("Assets/LightTower.png")
  unclickedCursor = loadImage("Assets/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/ClickedCursor.png");
+ screenOverlay = loadImage("Assets/DirtyScreen.png");
 }
-
-let towers = [];
 
 function setup() {
   createCanvas(720, 720);
@@ -58,6 +60,9 @@ function draw() {
   fill(0);
   newCursor.display();
   newCursor.move();
+
+  //UI
+  image(screenOverlay, 0, 0);
   }
 
   //item controll
@@ -72,12 +77,18 @@ function draw() {
 //variables
 let playGame;
 let gameControls = [87,83,65,68,69] //wasde
+let towers = [];
 
 //Sprites
-let playerSprite;
 let groundSprite;
 let itemSprite;
-let darkTower;
+let screenOverlay;
+
+//TowerSprites
+let towerSprite1;
+let towerSprite2;
+let towerSprite3;
+let towerSprite4;
 
 //Cursor Sprites
 let unclickedCursor;
