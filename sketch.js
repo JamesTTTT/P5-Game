@@ -10,6 +10,8 @@ function preload(){
  clickedCursor = loadImage("Assets/ClickedCursor.png");
  screenOverlay = loadImage("Assets/DirtyScreen.png");
 }
+let towers = [];
+let newEnemy = [];
 
 function setup() {
   createCanvas(720, 720);
@@ -44,8 +46,10 @@ function draw() {
 
   //enemy
   fill(22,22,22);
-  newEnemy.display();
-  newEnemy.move();
+  for(let i= 0; i<newEnemy.length; i++){ 
+  newEnemy[i].display();
+  newEnemy[i].move();
+}
 
   //tower
   fill(255);
@@ -81,8 +85,6 @@ function draw() {
 let playGame;
 let score = 0;
 let gameControls = [87,83,65,68,69] //wasde
-let towers = [];
-let newEnemy = [];
 
 //Sprites
 let groundSprite;

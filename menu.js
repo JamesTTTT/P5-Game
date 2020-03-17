@@ -10,7 +10,7 @@ class menu {
         fill(30);
         stroke(200);
         rect(this.x-100, this.y-50,this.width,this.height);
-
+        text("DEAD-ASS",150);
         playGame.show();
         playGame.position(this.x-50, this.y-20);
         playGame.size(100, 40);
@@ -20,7 +20,9 @@ class menu {
     }
     play(){
         playGame.hide();
-        score = 0;
+        score = 0; 
+        newPlayer.x = width/2;
+        newPlayer.y = height/2;
         loop();
     }
 }
