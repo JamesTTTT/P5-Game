@@ -38,6 +38,9 @@ function draw() {
   fill(255);
   newPlayer.display();
   newPlayer.move();
+  if (newPlayer.collision()){
+    gameMenu.display();
+  }
 
   //enemy
   fill(22,22,22);
@@ -76,8 +79,10 @@ function draw() {
 
 //variables
 let playGame;
+let score = 0;
 let gameControls = [87,83,65,68,69] //wasde
 let towers = [];
+let newEnemy = [];
 
 //Sprites
 let groundSprite;

@@ -20,7 +20,7 @@ class menu {
     }
     play(){
         playGame.hide();
-        playGame.hide();
+        score = 0;
         loop();
     }
 }

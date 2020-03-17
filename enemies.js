@@ -1,6 +1,9 @@
 class Enemy {
     constructor(){
-        switch(spawn){
+        this.x=100;
+        this.y=100;
+        //this.spawn = int(random(4)); 
+        /*switch(this.spawn){
             case 0:
                 this.x = 70;
                 this.y = 70;
@@ -17,9 +20,23 @@ class Enemy {
                 this.x = 650;
                 this.y = 650;
                 break;
-        }
-        this.width= 20;
+        }*/
+        this.r = 20;
+        this.speed = 0.01;
+    }
+    move(){
+        this.targetX = newPlayer.x;
+        this.targetY = newPlayer.y;
+        this.distX = this.targetX - this.x;
+        this.distY = this.targetY - this.y;
+        this.x += this.distX*this.speed;
+        this.y += this.distY*this.speed;
         
+    }
+    display(){
+        push();
+        ellipse(this.x, this.y, this.r);
+        pop();
     }
 }
 

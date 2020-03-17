@@ -6,6 +6,7 @@
         this.moveSpeed = 5;
         this.border = 15;
         this.sprite = playerSprite;
+        this.enemyHit = false;
       }
 
       display() {
@@ -32,5 +33,11 @@
       if(keyIsDown(gameControls[3])&&this.x<width-this.border){
         this.x += this.moveSpeed;
       }
+    }
+    collision(){
+      this.enemyHit = collideCircleCircle(this.x,this.y,this.size,newEnemy.x,newEnemy.y);
+      if(this.enemyHit){
+        return true;
+      };
     }
   }

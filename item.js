@@ -5,7 +5,7 @@ class Item {
         this.w = 30;
         this.h = 30;
         this.r = 0;
-        this.ease = 0.1;
+        this.ease = 0.2;
         this.size=64;
         this.sprite = itemSprite;
     }
