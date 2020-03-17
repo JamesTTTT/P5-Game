@@ -3,18 +3,27 @@
         this.x = width/2;
         this.y = height/2;
         this.size = 100;
+        this.size2 = 64;
         this.moveSpeed = 5;
         this.border = 15;
         this.sprite = playerSprite;
+        this.sprite2 = playerSprite2;
         this.enemyHit = false;
       }
 
       display() {
+        if(keyIsDown(gameControls[5])){
+          push();
+          translate(this.x, this.y);
+          image(this.sprite2,-this.size2/2,-this.size/2);
+          pop();
+        } else { 
         push();
         translate(this.x,this.y);
         image(this.sprite,-this.size/2,-this.size/2);
         pop();
-      };
+      }
+    };
 
       move() {
       //W
@@ -42,4 +51,11 @@
       };
     }
   }
+  sprint(){
+    if(keyIsDown(gameControls[5])){
+      this.moveSpeed = 7;
+    } else{
+      this.moveSpeed = 5;
+    }
+  };
 }

@@ -1,5 +1,6 @@
 function preload(){
  playerSprite = loadImage("Assets/PinkLord2.png");
+ playerSprite2 = loadImage("Assets/PinkLord.png");
  groundSprite = loadImage("Assets/Ground.png");
  itemSprite = loadImage("Assets/Crimson.png");
  towerSprite1= loadImage("Assets/DarkTower.png")
@@ -41,6 +42,7 @@ function draw() {
   fill(255);
   newPlayer.display();
   newPlayer.move();
+  newPlayer.sprint();
   if (newPlayer.collision()){
     gameMenu.display();
   }
@@ -87,10 +89,12 @@ let playGame;
 let towers = [];
 let enemies = [];
 let score = 0;
-let gameControls = [87,83,65,68,69] //wasde
+let gameControls = [87,83,65,68,69,16] //wasde"shift"
 
 //Sprites
 let groundSprite;
+let playerSprite;
+let playerSprite2;
 let itemSprite;
 let screenOverlay;
 
