@@ -35,7 +35,7 @@
       }
     }
     collision(){
-      this.enemyHit = collideCircleCircle(this.x,this.y,this.size,newEnemy.x,newEnemy.y);
+      this.enemyHit = collideCircleCircle(this.x,this.y,this.size,newEnemy.x,newEnemy.y,newEnemy.r);
       if(this.enemyHit){
         return true;
       };

@@ -2,25 +2,6 @@ class Enemy {
     constructor(){
         this.x=100;
         this.y=100;
-        //this.spawn = int(random(4)); 
-        /*switch(this.spawn){
-            case 0:
-                this.x = 70;
-                this.y = 70;
-                break;
-            case 1:
-                this.x = 650;
-                this.y = 70;
-                break;
-            case 2:
-                this.x = 70;
-                this.y = 650;
-                break;
-            case 3:
-                this.x = 650;
-                this.y = 650;
-                break;
-        }*/
         this.r = 20;
         this.speed = 0.01;
     }
