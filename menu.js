@@ -10,9 +10,15 @@ class menu {
         fill(30);
         stroke(200);
         rect(this.x-100, this.y-50,this.width,this.height);
-        text("DEAD-ASS",150);
+        noStroke();
+        fill(255,0,127);
+        textFont("Calibri");
+        textAlign(CENTER);
+        textSize(24);
+        text("Try Again Noob",360,335);
+
         playGame.show();
-        playGame.position(this.x-50, this.y-20);
+        playGame.position(this.x-50, this.y-13);
         playGame.size(100, 40);
         playGame.mousePressed(this.play)
         pop();
@@ -21,6 +27,7 @@ class menu {
     play(){
         playGame.hide();
         score = 0; 
+        //enemies = [];
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         loop();

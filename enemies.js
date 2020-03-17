@@ -1,10 +1,25 @@
 class Enemy {
-    constructor(){
-        this.x=100;
-        this.y=100;
+    constructor(xSpawn,ySpawn,spawn){
+        this.x=xSpawn;
+        this.y=ySpawn;
+        this.spawn = spawn;
         this.r = 20;
         this.speed = 0.01;
+        switch(this.spawn){
+            case "topLeft":
+                
+                break;
+            case "topRight":
+                
+                break;
+            case "bottomLeft":
+                
+                break;
+            case "bottomRight":
+                
+                break;
     }
+}
     move(){
         this.targetX = newPlayer.x;
         this.targetY = newPlayer.y;

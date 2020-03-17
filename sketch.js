@@ -10,8 +10,6 @@ function preload(){
  clickedCursor = loadImage("Assets/ClickedCursor.png");
  screenOverlay = loadImage("Assets/DirtyScreen.png");
 }
-let towers = [];
-let newEnemy = [];
 
 function setup() {
   createCanvas(720, 720);
@@ -20,10 +18,13 @@ function setup() {
   playGame = createButton('Play');
   gameMenu= new menu();
   newCursor = new hand();
-  newEnemy = new Enemy();
+  enemies.push(new Enemy(70,70,"topLeft"));
+  enemies.push(new Enemy(650,70,"topRight"));
+  enemies.push(new Enemy(70,650,"bottomLeft"));
+  enemies.push(new Enemy(650,650,"bottomRight"));
   defaultItem = new Item(gameControls);
   newPlayer = new Player(gameControls);
-  towers.push(new Tower(70,70, "topLeft"));
+  towers.push(new Tower(70,70,"topLeft"));
   towers.push(new Tower(650,70,"topRight"));
   towers.push(new Tower(70,650,"bottomLeft"));
   towers.push(new Tower(650,650,"bottomRight"));
@@ -46,9 +47,9 @@ function draw() {
 
   //enemy
   fill(22,22,22);
-  for(let i= 0; i<newEnemy.length; i++){ 
-  newEnemy[i].display();
-  newEnemy[i].move();
+  for(let i= 0; i<enemies.length; i++){ 
+  enemies[i].display();
+  enemies[i].move();
 }
 
   //tower
@@ -83,6 +84,8 @@ function draw() {
 
 //variables
 let playGame;
+let towers = [];
+let enemies = [];
 let score = 0;
 let gameControls = [87,83,65,68,69] //wasde
 

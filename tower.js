@@ -1,5 +1,5 @@
 class Tower {
-    constructor(xPos,yPos, pos){
+    constructor(xPos,yPos,pos){
         this.x = xPos;
         this.y = yPos;
         this.size = 128;
