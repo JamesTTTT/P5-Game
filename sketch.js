@@ -10,6 +10,7 @@ function preload(){
  unclickedCursor = loadImage("Assets/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/ClickedCursor.png");
  screenOverlay = loadImage("Assets/DirtyScreen.png");
+ clickSound = loadSound("ASsets/SFX/klick.mp3");
 }
 
 function setup() {
@@ -83,13 +84,15 @@ function draw() {
    }
     
   }
-
+  function mousePressed() {
+    clickSound.play();
+  }
 //variables
 let playGame;
 let towers = [];
 let enemies = [];
 let score = 0;
-let gameControls = [87,83,65,68,69,16] //wasde"shift"
+let gameControls = [87,83,65,68,69,16] //w,a,s,d,e,"shift"
 
 //Sprites
 let groundSprite;
@@ -107,6 +110,9 @@ let towerSprite4;
 //Cursor Sprites
 let unclickedCursor;
 let clickedCursor;
+
+//Sounds
+let clickSound;
 
 
 
