@@ -4,6 +4,7 @@ class menu {
         this.y = height/2;
         this.height = 100;
         this.width = 200;
+        this.sprite = screenOverlay;
     }
     display(){
         push()
@@ -22,6 +23,7 @@ class menu {
         playGame.size(100, 40);
         playGame.mousePressed(this.play)
         backgroundMusic.stop();
+        image(this.sprite, 0, 0);
         pop();
         noLoop();
     }

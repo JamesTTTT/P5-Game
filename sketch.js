@@ -51,11 +51,13 @@ function draw() {
 
   //enemy
   fill(22,22,22);
+
+  let spawnInterval =int(100);
   for(let i= 0; i<enemies.length; i++){ 
   enemies[i].display();
   enemies[i].move();
 }
-
+  
   //tower
   fill(255);
   for(let i = 0; i < towers.length; i++) {
@@ -72,9 +74,6 @@ function draw() {
   fill(0);
   newCursor.display();
   newCursor.move();
-
-  //UI
-  image(screenOverlay, 0, 0);
   }
 
   //item controll
@@ -93,6 +92,7 @@ function draw() {
 
 //variables
 let playGame;
+let enemyMultplier;
 let towers = [];
 let enemies = [];
 let score = 0;
