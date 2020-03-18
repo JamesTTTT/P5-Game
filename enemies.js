@@ -4,30 +4,36 @@ class Enemy {
         this.y=ySpawn;
         this.spawn = spawn;
         this.r = 20;
-        this.speed = 0.01;
+        this.speed = 0.009;
+        this.direction = -1;
         switch(this.spawn){
             case "topLeft":
-                
+                this.targetX = newPlayer.x;
+                this.targetY = newPlayer.y;
                 break;
             case "topRight":
-                
+                this.targetX = newPlayer.x*this.direction;
+                this.targetY = newPlayer.y;
                 break;
             case "bottomLeft":
-                
+                this.targetX = newPlayer.x;
+                this.targetY = newPlayer.y*this.direction;
                 break;
             case "bottomRight":
-                
+                this.targetX = newPlayer.x*this.direction;
+                this.targetY = newPlayer.y*this.direction;
                 break;
     }
 }
     move(){
-        this.targetX = newPlayer.x;
-        this.targetY = newPlayer.y;
-        this.distX = this.targetX - this.x;
-        this.distY = this.targetY - this.y;
-        this.x += this.distX*this.speed;
-        this.y += this.distY*this.speed;
-        
+        this.x += this.speed*this.targetX;
+        this.y += this.speed*this.targetY;
+        if (this.x > width - this.r || this.x < this.r) {
+            this.targetX *= -1;
+        }
+        if (this.y > width - this.r || this.y < this.r) {
+            this.targetY *= -1;
+        }
     }
     display(){
         push();

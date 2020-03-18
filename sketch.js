@@ -21,12 +21,12 @@ function setup() {
   playGame = createButton('Play');
   gameMenu= new menu();
   newCursor = new hand();
+  newPlayer = new Player(gameControls);
+  defaultItem = new Item(gameControls);
   enemies.push(new Enemy(70,70,"topLeft"));
   enemies.push(new Enemy(650,70,"topRight"));
   enemies.push(new Enemy(70,650,"bottomLeft"));
   enemies.push(new Enemy(650,650,"bottomRight"));
-  defaultItem = new Item(gameControls);
-  newPlayer = new Player(gameControls);
   towers.push(new Tower(70,70,"topLeft"));
   towers.push(new Tower(650,70,"topRight"));
   towers.push(new Tower(70,650,"bottomLeft"));
