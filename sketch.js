@@ -10,7 +10,8 @@ function preload(){
  unclickedCursor = loadImage("Assets/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/ClickedCursor.png");
  screenOverlay = loadImage("Assets/DirtyScreen.png");
- clickSound = loadSound("ASsets/SFX/klick.mp3");
+ clickSound = loadSound("Assets/SFX/klick.mp3");
+ backgroundMusic = loadSound("Assets/SFX/BackgroundMusic.mp3");
 }
 
 function setup() {
@@ -84,9 +85,12 @@ function draw() {
    }
     
   }
+
+//sound
   function mousePressed() {
     clickSound.play();
   }
+
 //variables
 let playGame;
 let towers = [];

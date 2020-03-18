@@ -21,13 +21,14 @@ class menu {
         playGame.position(this.x-50, this.y-13);
         playGame.size(100, 40);
         playGame.mousePressed(this.play)
+        backgroundMusic.stop();
         pop();
         noLoop();
     }
     play(){
         playGame.hide();
         score = 0; 
-        //enemies = [];
+        backgroundMusic.play();
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         loop();
