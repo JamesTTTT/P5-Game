@@ -43,7 +43,7 @@ function draw() {
   newPlayer.display();
   newPlayer.move();
   newPlayer.sprint();
-  if (newPlayer.collision()){
+  if (newPlayer.hitBox()){
     gameMenu.display();
   }
 
@@ -65,6 +65,7 @@ function draw() {
   stroke(255);
   defaultItem.display();
   defaultItem.pull();
+  defaultItem.hitBox();
 
   //Hand
   fill(0);
@@ -97,10 +98,6 @@ function draw() {
 
 //variables
 let playGame;
-let enemyMultplier;
-let spawnTime;
-let spawnInterval;
-let baseSpawn = 4000;
 let towers = [];
 let enemies = [];
 let score = 0;

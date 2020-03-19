@@ -43,7 +43,7 @@
         this.x += this.moveSpeed;
       }
     }
-    collision(){
+    hitBox(){
       for (var i = 0; i < enemies.length; i++){
       this.enemyHit = collideCircleCircle(this.x,this.y,this.size-75,enemies[i].x,enemies[i].y,enemies[i].r);
       if(this.enemyHit){

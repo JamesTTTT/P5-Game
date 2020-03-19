@@ -8,6 +8,7 @@ class Item {
         this.ease = 0.2;
         this.size=64;
         this.sprite = itemSprite;
+        this.enemykill = false;
     }
         display() {
             push();
@@ -27,6 +28,15 @@ class Item {
             if(keyIsDown(gameControls[4])){
                 this.x += this.distX*this.ease;
                 this.y += this.distY*this.ease;
+            }
+        }
+        hitBox(){
+            for (var i = 0; i < enemies.length; i++){
+            this.enemykill = collideCircleCircle(this.x,this.y,this.size-30,enemies[i].x,enemies[i].y,enemies[i].r);
+            if(this.enemykill){
+                enemies.splice(i,1);
+                return true
+            }
             }
         }
 
