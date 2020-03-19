@@ -23,6 +23,7 @@ class menu {
         playGame.size(100, 40);
         playGame.mousePressed(this.play)
         backgroundMusic.stop();
+        deathSound.play();
         image(this.sprite, 0, 0);
         pop();
         noLoop();
@@ -31,6 +32,7 @@ class menu {
         playGame.hide();
         score = 0; 
         backgroundMusic.play();
+        deathSound.stop();
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         loop();

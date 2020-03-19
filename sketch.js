@@ -10,8 +10,9 @@ function preload(){
  unclickedCursor = loadImage("Assets/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/ClickedCursor.png");
  screenOverlay = loadImage("Assets/DirtyScreen.png");
- clickSound = loadSound("Assets/SFX/klick.mp3");
- backgroundMusic = loadSound("Assets/SFX/BackgroundMusic.mp3");
+ clickSound = loadSound("Assets/SFX/klick.wav");
+ deathSound = loadSound("Assets/SFX/deathsound.mp3");
+ backgroundMusic = loadSound("Assets/SFX/gamemusic.mp3");
 }
 
 function setup() {
@@ -23,15 +24,18 @@ function setup() {
   newCursor = new hand();
   newPlayer = new Player(gameControls);
   defaultItem = new Item(gameControls);
-  enemies.push(new Enemy(70,70,"topLeft"));
-  enemies.push(new Enemy(650,70,"topRight"));
-  enemies.push(new Enemy(70,650,"bottomLeft"));
-  enemies.push(new Enemy(650,650,"bottomRight"));
   towers.push(new Tower(70,70,"topLeft"));
   towers.push(new Tower(650,70,"topRight"));
   towers.push(new Tower(70,650,"bottomLeft"));
   towers.push(new Tower(650,650,"bottomRight"));
+  setInterval(enemySpawn,4000);
   gameMenu.display();
+}
+function enemySpawn(){
+  enemies.push(new Enemy(70,70,"topLeft"));
+  enemies.push(new Enemy(650,70,"topRight"));
+  enemies.push(new Enemy(70,650,"bottomLeft"));
+  enemies.push(new Enemy(650,650,"bottomRight"));
 }
 
 function draw() {
@@ -51,8 +55,6 @@ function draw() {
 
   //enemy
   fill(22,22,22);
-
-  let spawnInterval =int(100);
   for(let i= 0; i<enemies.length; i++){ 
   enemies[i].display();
   enemies[i].move();
@@ -85,7 +87,7 @@ function draw() {
     
   }
 
-//sound
+//click sound
   function mousePressed() {
     clickSound.play();
   }
@@ -96,6 +98,7 @@ let enemyMultplier;
 let towers = [];
 let enemies = [];
 let score = 0;
+let timer = 0;
 let gameControls = [87,83,65,68,69,16] //w,a,s,d,e,"shift"
 
 //Sprites
@@ -117,6 +120,8 @@ let clickedCursor;
 
 //Sounds
 let clickSound;
+let deathSound;
+let backgroundMusic;
 
 
 
