@@ -88,10 +88,10 @@ function draw() {
   }
 
   function enemySpawn(){
-    enemies.push(new Enemy(70,70,"topLeft"));
-    enemies.push(new Enemy(650,70,"topRight"));
+    enemies.push(new Enemy(20,20,"topLeft"));
+    /*enemies.push(new Enemy(650,70,"topRight"));
     enemies.push(new Enemy(70,650,"bottomLeft"));
-    enemies.push(new Enemy(650,650,"bottomRight"));
+    enemies.push(new Enemy(650,650,"bottomRight"));*/
   }
   
 
