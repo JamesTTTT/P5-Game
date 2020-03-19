@@ -40,7 +40,4 @@ class Enemy {
         ellipse(this.x, this.y, this.r);
         pop();
     }
-
-
-    
 }

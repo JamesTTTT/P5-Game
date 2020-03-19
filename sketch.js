@@ -28,14 +28,8 @@ function setup() {
   towers.push(new Tower(650,70,"topRight"));
   towers.push(new Tower(70,650,"bottomLeft"));
   towers.push(new Tower(650,650,"bottomRight"));
-  setInterval(enemySpawn,4000);
   gameMenu.display();
-}
-function enemySpawn(){
-  enemies.push(new Enemy(70,70,"topLeft"));
-  enemies.push(new Enemy(650,70,"topRight"));
-  enemies.push(new Enemy(70,650,"bottomLeft"));
-  enemies.push(new Enemy(650,650,"bottomRight"));
+  setInterval(enemySpawn,4000);
 }
 
 function draw() {
@@ -77,6 +71,7 @@ function draw() {
   newCursor.display();
   newCursor.move();
   }
+  //Draw Ends Here
 
   //item controll
   function mouseDragged() {
@@ -92,9 +87,20 @@ function draw() {
     clickSound.play();
   }
 
+  function enemySpawn(){
+    enemies.push(new Enemy(70,70,"topLeft"));
+    enemies.push(new Enemy(650,70,"topRight"));
+    enemies.push(new Enemy(70,650,"bottomLeft"));
+    enemies.push(new Enemy(650,650,"bottomRight"));
+  }
+  
+
 //variables
 let playGame;
 let enemyMultplier;
+let spawnTime;
+let spawnInterval;
+let baseSpawn = 4000;
 let towers = [];
 let enemies = [];
 let score = 0;

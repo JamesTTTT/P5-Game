@@ -30,6 +30,7 @@ class menu {
     }
     play(){
         playGame.hide();
+        enemies = [];
         score = 0; 
         backgroundMusic.play();
         deathSound.stop();
