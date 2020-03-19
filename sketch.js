@@ -20,7 +20,7 @@ function setup() {
   frameRate(60);
   noCursor();
   playGame = createButton('Play');
-  gameMenu= new menu();
+  gameMenu = new menu();
   newCursor = new hand();
   newPlayer = new Player(gameControls);
   defaultItem = new Item(gameControls);
@@ -37,6 +37,7 @@ function draw() {
   background(20);
   noStroke();
   image(groundSprite,0,0);
+  gameMenu.ui();
 
   //Player
   fill(255);
@@ -72,6 +73,8 @@ function draw() {
   newCursor.display();
   newCursor.move();
   }
+  
+
   //Draw Ends Here
 
   //item controll
@@ -93,6 +96,7 @@ function draw() {
     /*enemies.push(new Enemy(650,70,"topRight"));
     enemies.push(new Enemy(70,650,"bottomLeft"));
     enemies.push(new Enemy(650,650,"bottomRight"));*/
+    score += 1;
   }
   
 
@@ -101,6 +105,7 @@ let playGame;
 let towers = [];
 let enemies = [];
 let score = 0;
+let level = 1;
 let timer = 0;
 let gameControls = [87,83,65,68,69,16] //w,a,s,d,e,"shift"
 
