@@ -41,7 +41,6 @@ function draw() {
   //Player
   newPlayer.display();
   newPlayer.move();
-  newPlayer.sprint();
   if (newPlayer.hitBox()){
     gameMenu.display();
   }
@@ -59,18 +58,38 @@ function draw() {
 
   //item
   defaultItem.display();
-  defaultItem.pull();
   defaultItem.hitBox();
 
   //Hand
   newCursor.display();
   newCursor.move();
 
+  //Game UI
   gameMenu.ui();
-  }
-  //Draw Ends Here
 
-  //item controll
+
+
+  //Abilities
+
+  //Force Pull abilty by pressing "E"
+  if(level>=2){
+    defaultItem.pull();
+  }
+
+  //Shrink ability by pressing "Shift"
+  if(level>=4){
+    newPlayer.shrink();
+  }
+
+  //Sprint ability by pressing "Shift"
+  if(level>=5){
+    newPlayer.sprint();
+  }
+}
+//Draw Ends Here
+
+
+//item controll
   function mouseDragged() {
   let d1 = dist(defaultItem.x,defaultItem.y,newCursor.x,newCursor.y);
    if(d1<60){
@@ -78,6 +97,7 @@ function draw() {
    }
     
   }
+
 
 //click sound
   function mousePressed() {
@@ -97,6 +117,7 @@ function draw() {
 let playGame;
 let towers = [];
 let enemies = [];
+let nextLvl = 20;
 let score = 0;
 let level = 1;
 let timer = 0;

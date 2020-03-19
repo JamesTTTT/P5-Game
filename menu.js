@@ -5,7 +5,6 @@ class menu {
         this.height = 120;
         this.width = 200;
         this.sprite = screenOverlay;
-        this.nextLvl = 20;
     }
     display(){
         push()
@@ -36,6 +35,7 @@ class menu {
         enemies = [];
         score = 0; 
         level = 1;
+        nextLvl = 20;
         //backgroundMusic.loop();
         deathSound.stop();
         newPlayer.x = width/2;
@@ -47,15 +47,15 @@ class menu {
     ui(){
         push();
         fill(30);
-        rect(330, 5, 60, 40);
+        rect(330, 5, 80, 40);
         fill(255);
         textAlign(CENTER);
         textSize(13);
         text("Score:"+score,this.x,20);
         text("Level:"+level,this.x,34);
-        if(score>this.nextLvl){
+        if(score>nextLvl){
             level += 1;
-            this.nextLvl *=2;
+            nextLvl *=2;
         }
         pop();
     }

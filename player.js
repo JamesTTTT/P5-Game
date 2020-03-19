@@ -12,18 +12,13 @@
       }
 
       display() {
-        if(keyIsDown(gameControls[5])){
+        if(level<5){
           push();
           translate(this.x, this.y);
-          image(this.sprite2,-this.size2/2,-this.size/2);
+          image(this.sprite,-this.size/2,-this.size/2);
           pop();
-        } else { 
-        push();
-        translate(this.x,this.y);
-        image(this.sprite,-this.size/2,-this.size/2);
-        pop();
+        }
       }
-    };
 
       move() {
       //W
@@ -42,6 +37,7 @@
       if(keyIsDown(gameControls[3])&&this.x<width-this.border){
         this.x += this.moveSpeed;
       }
+
     }
     hitBox(){
       for (var i = 0; i < enemies.length; i++){
@@ -51,11 +47,30 @@
       };
     }
   }
+
+
   sprint(){
     if(keyIsDown(gameControls[5])){
       this.moveSpeed = 7;
     } else{
       this.moveSpeed = 5;
     }
-  };
-}
+  }
+
+
+  shrink(){
+    if(keyIsDown(gameControls[5])){
+      push();
+      translate(this.x, this.y);
+      image(this.sprite2,-this.size2/2,-this.size2/2);
+      pop();
+    }
+    else{
+      push();
+      translate(this.x,this.y);
+      image(this.sprite,-this.size/2,-this.size/2);
+      pop();
+      }
+
+      }
+    }
