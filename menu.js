@@ -5,6 +5,7 @@ class menu {
         this.height = 120;
         this.width = 200;
         this.sprite = screenOverlay;
+        this.nextLvl = 20;
     }
     display(){
         push()
@@ -18,8 +19,7 @@ class menu {
         textSize(20);
         text("Death Be Upon You",360,335);
         textSize(20);
-        this.score = score;
-        text("Score:"+this.score,360,412);
+        text("Score:"+score,360,412);
 
         playGame.show();
         playGame.position(this.x-50, this.y-12);
@@ -41,20 +41,22 @@ class menu {
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         defaultItem.x =360;
-        defaultItem.y =20;
+        defaultItem.y =100;
         loop();
     }
     ui(){
         push();
-        this.level = level;
-        this.score = this.score;
         fill(30);
         rect(330, 5, 60, 40);
         fill(255);
         textAlign(CENTER);
         textSize(13);
-        text("Score:"+this.score,this.x,20);
-        text("Level:"+this.level,this.x,34);
+        text("Score:"+score,this.x,20);
+        text("Level:"+level,this.x,34);
+        if(score>this.nextLvl){
+            level += 1;
+            this.nextLvl *=2;
+        }
         pop();
     }
 }

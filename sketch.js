@@ -37,10 +37,8 @@ function draw() {
   background(20);
   noStroke();
   image(groundSprite,0,0);
-  gameMenu.ui();
-
+  
   //Player
-  fill(255);
   newPlayer.display();
   newPlayer.move();
   newPlayer.sprint();
@@ -49,32 +47,27 @@ function draw() {
   }
 
   //enemy
-  fill(22,22,22);
   for(let i= 0; i<enemies.length; i++){ 
   enemies[i].display();
   enemies[i].move();
 }
   
   //tower
-  fill(255);
   for(let i = 0; i < towers.length; i++) {
     towers[i].display();
   }
 
   //item
-  fill(55);
-  stroke(255);
   defaultItem.display();
   defaultItem.pull();
   defaultItem.hitBox();
 
   //Hand
-  fill(0);
   newCursor.display();
   newCursor.move();
-  }
-  
 
+  gameMenu.ui();
+  }
   //Draw Ends Here
 
   //item controll
