@@ -25,7 +25,7 @@ class menu {
         playGame.size(100, 40);
         playGame.mousePressed(this.play)
         backgroundMusic.stop();
-        //deathSound.play();
+        deathSound.play();
         image(this.sprite, 0, 0);
         pop();
         noLoop();
@@ -42,6 +42,7 @@ class menu {
         newPlayer.y = height/2;
         defaultItem.x =360;
         defaultItem.y =100;
+        //towers
         loop();
     }
     ui(){
@@ -56,6 +57,7 @@ class menu {
         if(score>nextLvl){
             level += 1;
             nextLvl *=2;
+            levelUp.play();
         }
         pop();
     }

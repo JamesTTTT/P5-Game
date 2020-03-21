@@ -1,18 +1,19 @@
 function preload(){
- playerSprite = loadImage("Assets/PinkLord2.png");
- playerSprite2 = loadImage("Assets/PinkLord.png");
- groundSprite = loadImage("Assets/Ground.png");
- itemSprite = loadImage("Assets/Crimson.png");
- towerSprite1= loadImage("Assets/DarkTower.png")
- towerSprite2= loadImage("Assets/ToxicTower.png")
- towerSprite3= loadImage("Assets/RedTower.png")
- towerSprite4= loadImage("Assets/LightTower.png")
- unclickedCursor = loadImage("Assets/UnclickedCursor.png");
- clickedCursor = loadImage("Assets/ClickedCursor.png");
- screenOverlay = loadImage("Assets/DirtyScreen.png");
+ playerSprite = loadImage("Assets/Sprites/PinkLord2.png");
+ playerSprite2 = loadImage("Assets/Sprites/PinkLord.png");
+ groundSprite = loadImage("Assets/Sprites/gameGround.png");
+ itemSprite = loadImage("Assets/Sprites/Crimson.png");
+ towerSprite1= loadImage("Assets/Sprites/DeathTower.png")
+ towerSprite2= loadImage("Assets/Sprites/FamineTower.png")
+ towerSprite3= loadImage("Assets/Sprites/PestilenceTower.png")
+ towerSprite4= loadImage("Assets/Sprites/WarTower.png")
+ unclickedCursor = loadImage("Assets/Sprites/UnclickedCursor.png");
+ clickedCursor = loadImage("Assets/Sprites/ClickedCursor.png");
+ screenOverlay = loadImage("Assets/Sprites/DirtyScreen.png");
  clickSound = loadSound("Assets/SFX/klick.wav");
- deathSound = loadSound("Assets/SFX/deathsound.mp3");
+ deathSound = loadSound("Assets/SFX/deathbe.mp3");
  backgroundMusic = loadSound("Assets/SFX/gamemusic.mp3");
+ levelUp = loadSound("Assets/SFX/levelup.wav");
 }
 
 function setup() {
@@ -54,6 +55,8 @@ function draw() {
   //tower
   for(let i = 0; i < towers.length; i++) {
     towers[i].display();
+    //towers[i].destroy();
+    //towers[i].mouseReleased();
   }
 
   //item
@@ -77,12 +80,12 @@ function draw() {
   }
 
   //Shrink ability by pressing "Shift"
-  if(level>=4){
+  if(level>=5){
     newPlayer.shrink();
   }
 
   //Sprint ability by pressing "Shift"
-  if(level>=5){
+  if(level>=6){
     newPlayer.sprint();
   }
 }
@@ -105,10 +108,21 @@ function draw() {
   }
 
   function enemySpawn(){
-    enemies.push(new Enemy(20,20,"topLeft"));
-    /*enemies.push(new Enemy(650,70,"topRight"));
-    enemies.push(new Enemy(70,650,"bottomLeft"));
-    enemies.push(new Enemy(650,650,"bottomRight"));*/
+    let spawner = int(random(4));
+    switch(spawner){
+      case 0:
+        enemies.push(new Enemy(20,20,"topLeft"));
+        break;
+      case 1:
+        enemies.push(new Enemy(690,30,"topRight"));
+        break;
+      case 2:
+        enemies.push(new Enemy(20,700,"bottomLeft"));
+        break;
+      case 3:
+        enemies.push(new Enemy(700,700,"bottomRight"));
+        break;
+    }
     score += 1;
   }
   
@@ -144,6 +158,7 @@ let clickedCursor;
 let clickSound;
 let deathSound;
 let backgroundMusic;
+let levelUp;
 
 
 
