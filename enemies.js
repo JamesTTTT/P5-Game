@@ -16,8 +16,8 @@ class Enemy {
                 this.targetY = newPlayer.y;
                 break;
             case "bottomLeft":
-                this.targetX = newPlayer.x;
-                this.targetY = newPlayer.y*this.direction;
+                this.targetX = newPlayer.y*this.direction;
+                this.targetY = newPlayer.x;
                 break;
             case "bottomRight":
                 this.targetX = newPlayer.x*this.direction;

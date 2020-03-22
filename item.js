@@ -7,7 +7,9 @@ class Item {
         this.r = 0;
         this.ease = 0.2;
         this.size=64;
+        this.signSize= 32;
         this.sprite = itemSprite;
+        this.abilitySprite = pullSprite;
         this.enemykill = false;
     }
         display() {
@@ -29,6 +31,12 @@ class Item {
                 this.x += this.distX*this.ease;
                 this.y += this.distY*this.ease;
             }
+        }
+        pullDisplay(){
+            push();
+            translate(255, 650);
+            image(this.abilitySprite,this.signSize,this.signSize);
+            pop();
         }
         hitBox(){
             for (var i = 0; i < enemies.length; i++){

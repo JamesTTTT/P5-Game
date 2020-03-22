@@ -36,13 +36,14 @@ class menu {
         score = 0; 
         level = 1;
         nextLvl = 20;
-        //backgroundMusic.loop();
-        deathSound.stop();
+        enemyMultiplier = 1;
+        spawnInterval = 2000;
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         defaultItem.x =360;
         defaultItem.y =100;
-        //towers
+        //backgroundMusic.loop();
+        deathSound.stop();
         loop();
     }
     ui(){
