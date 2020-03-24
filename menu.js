@@ -33,11 +33,12 @@ class menu {
     play(){
         playGame.hide();
         enemies = [];
+        bullets = [];
         score = 0; 
         level = 1;
         nextLvl = 20;
         enemyMultiplier = 1;
-        spawnInterval = 2000;
+        spawnInterval = 4000;
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         defaultItem.x =360;
@@ -59,6 +60,28 @@ class menu {
             level += 1;
             nextLvl *=2;
             levelUp.play();
+        }
+        fill(30)
+        rect(260, 645, 200, 100);
+        fill(255)
+        if(level<3){
+            text("Use WASD to move",this.x,665);
+            text("Drag and Drop sword mith mouse",this.x,680);
+        }
+        if(level>=3){
+            if(level<5){
+                text("Use E to summon sword",this.x,665); 
+        }
+        }
+        if(level >=5){
+            if(level<6){
+                text("Use Shift to Shrink",this.x,665); 
+        }
+        }
+        if(level>=6){
+            if(level<7){
+                text("Use Shift to Shrink+Sprint",this.x,665); 
+        }
         }
         pop();
     }

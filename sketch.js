@@ -1,13 +1,21 @@
 function preload(){
-  //Sprites
+  //Game Sprites
  playerSprite = loadImage("Assets/Sprites/PinkLord2.png");
  playerSprite2 = loadImage("Assets/Sprites/PinkLord.png");
  groundSprite = loadImage("Assets/Sprites/Ground.png");
  itemSprite = loadImage("Assets/Sprites/Crimson.png");
- towerSprite1= loadImage("Assets/Sprites/DeathTower.png")
- towerSprite2= loadImage("Assets/Sprites/FamineTower.png")
- towerSprite3= loadImage("Assets/Sprites/PestilenceTower.png")
- towerSprite4= loadImage("Assets/Sprites/WarTower.png")
+
+ enemySprite1 = loadImage("Assets/Sprites/enemy/DeathBall.png");
+ enemySprite2 = loadImage("Assets/Sprites/enemy/FamineBall.png");
+ enemySprite3 = loadImage("Assets/Sprites/enemy/PestilenceBall.png");
+ enemySprite4 = loadImage("Assets/Sprites/enemy/WarBall.png");
+
+ towerSprite1= loadImage("Assets/Sprites/DeathTower.png");
+ towerSprite2= loadImage("Assets/Sprites/FamineTower.png");
+ towerSprite3= loadImage("Assets/Sprites/PestilenceTower.png");
+ towerSprite4= loadImage("Assets/Sprites/WarTower.png");
+
+ //UI
  unclickedCursor = loadImage("Assets/Sprites/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/Sprites/ClickedCursor.png");
  screenOverlay = loadImage("Assets/Sprites/DirtyScreen.png");
@@ -39,6 +47,7 @@ function setup() {
   towers.push(new Tower(650,650,"bottomRight"));
   gameMenu.display();
 }
+
 
 function draw() {
   //Game Background
@@ -77,7 +86,7 @@ function draw() {
 
   //Abilities
   //Force Pull abilty by pressing "E"
-  if(level>=2){
+  if(level>=3){
     defaultItem.pull();
     defaultItem.pullDisplay();
   }
@@ -94,8 +103,8 @@ function draw() {
     newPlayer.sprintDisplay();
   }
 }
-//Draw Ends Here
 
+//Draw Ends Here
 
 //item controll
   function mouseDragged() {
@@ -106,7 +115,6 @@ function draw() {
     
   }
 
-
 //click sound
   function mousePressed() {
     clickSound.play();
@@ -114,7 +122,7 @@ function draw() {
 
   //Enemy Spawning
   let enemyMultiplier = 1;
-  let spawnInterval = 2000;
+  let spawnInterval = 4000;
   setInterval(enemySpawn,spawnInterval*enemyMultiplier);
   function enemySpawn(){
     let spawner = int(random(4));
@@ -132,24 +140,23 @@ function draw() {
         enemies.push(new Enemy(700,700,"bottomRight"));
         break;
     }
-
     score += 1;
-    
     if(enemyMultiplier>0.4){
       enemyMultiplier -= 0.05;
     }
   }
-  
+
 
 //variables
 let playGame;
 let towers = [];
 let enemies = [];
+let bullets = [];
 let nextLvl = 20;
 let score = 0;
 let level = 1;
 let timer = 0;
-let gameControls = [87,83,65,68,69,16] //w,a,s,d,e,"shift"
+let gameControls = [87,83,65,68,69,16,32] //w,a,s,d,e,"shift","space"
 
 //Sprites
 let groundSprite;
@@ -157,6 +164,11 @@ let playerSprite;
 let playerSprite2;
 let itemSprite;
 let screenOverlay;
+
+let enemySprite1;
+let enemySprite2;
+let enemySprite3;
+let enemySprite4;
 
 let shrinkSprite;
 let pullSprite;

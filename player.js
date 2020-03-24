@@ -82,10 +82,12 @@
       }
 
       }
-      shrinkDisplay(){
-        push();
-        translate(285, 650);
-        image(this.abilitySprite2,this.signSize,this.signSize);
-        pop();
+      
+    shrinkDisplay(){
+      push();
+      translate(285, 650);
+      image(this.abilitySprite2,this.signSize,this.signSize);
+      pop();
       }
     }
+

@@ -10,18 +10,22 @@ class Enemy {
             case "topLeft":
                 this.targetX = newPlayer.x;
                 this.targetY = newPlayer.y;
+                this.sprite = enemySprite1;
                 break;
             case "topRight":
                 this.targetX = newPlayer.x*this.direction;
                 this.targetY = newPlayer.y;
+                this.sprite = enemySprite2;
                 break;
             case "bottomLeft":
                 this.targetX = newPlayer.y*this.direction;
                 this.targetY = newPlayer.x;
+                this.sprite = enemySprite3;
                 break;
             case "bottomRight":
                 this.targetX = newPlayer.x*this.direction;
                 this.targetY = newPlayer.y*this.direction;
+                this.sprite = enemySprite4;
                 break;
     }
 }
@@ -37,7 +41,8 @@ class Enemy {
     }
     display(){
         push();
-        ellipse(this.x, this.y, this.r);
+        translate(this.x, this.y);
+        image(this.sprite, -this.r/2,-this.r/2);
         pop();
     }
 }
