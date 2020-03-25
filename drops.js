@@ -1,15 +1,31 @@
 class drop{
-    constructor(xPos,yPos){
+    constructor(xPos,yPos,type){
         this.x = xPos;
         this.y = yPos;
         this.size = 30;
         this.dropClaim = false;
-        this.sprite = dropSprite;
+        this.sprite = [dropSprite1,dropSprite2,dropSprite3];
+        this.arraySelector;
+
+        switch(type){
+            case "silver":
+                this.arraySelector = 0;
+                this.addScore = 5;
+            break;
+            case "gold":
+                this.arraySelector = 1;
+                this.addScore = 10;
+            break;
+            case "diamond":
+                this.arraySelector = 2;
+                this.addScore = 15;
+            break;
+        }
     }
     display(){
         push();
         translate(this.x, this.y);
-        image(dropSprite, -this.size/2,-this.size/2);
+        image(this.sprite[this.arraySelector], -this.size/2, -this.size/2,);
         pop();
     }
     move(){
@@ -22,7 +38,7 @@ class drop{
             if(this.dropClaim){
                 newDrop.splice(i,1);
                 pickupSound.play();
-                score += 5;
+                score += this.addScore;
                 return true;
             }
             }

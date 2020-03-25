@@ -6,28 +6,29 @@ class Enemy {
         this.r = 20;
         this.speed = 0.009;
         this.direction = -1;
-        this.deathPosX;
-        this.deathPosY;
+        this.sprite = [enemySprite1,enemySprite2,enemySprite3,enemySprite4];
+        this.arraySelector;
+
         switch(this.spawn){
             case "topLeft":
                 this.targetX = newPlayer.x;
                 this.targetY = newPlayer.y;
-                this.sprite = enemySprite1;
+                this.arraySelector = 0;
                 break;
             case "topRight":
                 this.targetX = newPlayer.x*this.direction;
                 this.targetY = newPlayer.y;
-                this.sprite = enemySprite2;
+                this.arraySelector = 1;
                 break;
             case "bottomLeft":
                 this.targetX = newPlayer.y*this.direction;
                 this.targetY = newPlayer.x;
-                this.sprite = enemySprite3;
+                this.arraySelector = 2;
                 break;
             case "bottomRight":
                 this.targetX = newPlayer.x*this.direction;
                 this.targetY = newPlayer.y*this.direction;
-                this.sprite = enemySprite4;
+                this.arraySelector = 3;
                 break;
     }
 }
@@ -44,7 +45,7 @@ class Enemy {
     display(){
         push();
         translate(this.x, this.y);
-        image(this.sprite, -this.r/2,-this.r/2);
+        image(this.sprite[this.arraySelector], -this.r/2,-this.r/2);
         pop();
     }
 }

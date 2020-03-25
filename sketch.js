@@ -4,19 +4,25 @@ function preload(){
  playerSprite2 = loadImage("Assets/Sprites/PinkLord.png");
  groundSprite = loadImage("Assets/Sprites/Ground.png");
  itemSprite = loadImage("Assets/Sprites/Crimson.png");
- dropSprite = loadImage("Assets/Sprites/ScoreDrop.png");
 
+ //Drop Sprites
+ dropSprite1 = loadImage("Assets/Sprites/drops/ScoreDropSilver.png");
+ dropSprite2 = loadImage("Assets/Sprites/drops/ScoreDropGold.png");
+ dropSprite3 = loadImage("Assets/Sprites/drops/ScoreDropDiamond.png");
+ 
+ //Enemy Sprites
  enemySprite1 = loadImage("Assets/Sprites/enemy/DeathBall.png");
  enemySprite2 = loadImage("Assets/Sprites/enemy/FamineBall.png");
  enemySprite3 = loadImage("Assets/Sprites/enemy/PestilenceBall.png");
  enemySprite4 = loadImage("Assets/Sprites/enemy/WarBall.png");
 
+ //Tower Sprites
  towerSprite1= loadImage("Assets/Sprites/DeathTower.png");
  towerSprite2= loadImage("Assets/Sprites/FamineTower.png");
  towerSprite3= loadImage("Assets/Sprites/PestilenceTower.png");
  towerSprite4= loadImage("Assets/Sprites/WarTower.png");
 
- //UI
+ //UI Sprites
  unclickedCursor = loadImage("Assets/Sprites/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/Sprites/ClickedCursor.png");
  screenOverlay = loadImage("Assets/Sprites/DirtyScreen.png");
@@ -117,8 +123,19 @@ function draw() {
 let dropInterval = 13000;
 setInterval(gameDrops,dropInterval);
 function gameDrops(){
-    newDrop.push(new drop(random(0, 720),random(140, 580)));
+  let dropSpawner = int(random(3));
+  switch(dropSpawner){
+    case 0: 
+    newDrop.push(new drop(random(0, 720),random(140, 580,"silver")));
+    break
+    case 1: 
+    newDrop.push(new drop(random(0, 720),random(140, 580,"gold")));
+    break
+    case 2:
+    newDrop.push(new drop(random(0, 720),random(140, 580,"diamond"))); 
+    break
   }
+}
 
 //Drops move
 
@@ -189,7 +206,6 @@ let gameControls = [87,83,65,68,69,16,32] //w,a,s,d,e,"shift","space"
 let groundSprite;
 let playerSprite;
 let playerSprite2;
-let dropSprite;
 let itemSprite;
 let screenOverlay;
 
@@ -201,6 +217,10 @@ let enemySprite4;
 let shrinkSprite;
 let pullSprite;
 let sprintSprite;
+
+let dropSprite1;
+let dropSprite2;
+let dropSprite3;
 
 //TowerSprites
 let towerSprite1;
