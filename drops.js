@@ -26,7 +26,6 @@ class drop{
     display(){
         push();
         translate(this.x, this.y);
-        console.log(this.arraySelector);
         image(this.sprite[this.arraySelector], -this.size/2, -this.size/2);
         pop();
     }

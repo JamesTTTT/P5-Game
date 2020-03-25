@@ -1,3 +1,54 @@
+//variables
+let playGame;
+let towers = [];
+let enemies = [];
+let bullets = [];
+let newDrop = [];
+let nextLvl = 20;
+let score = 0;
+let level = 1;
+let timer = 0;
+let gameControls = [87,83,65,68,69,16,32] //w,a,s,d,e,"shift","space"
+let bulletTic = 0;
+let bulletTicMax = 60;
+
+//Sprites
+let groundSprite;
+let playerSprite;
+let playerSprite2;
+let itemSprite;
+let screenOverlay;
+
+let enemySprite1;
+let enemySprite2;
+let enemySprite3;
+let enemySprite4;
+
+let shrinkSprite;
+let pullSprite;
+let sprintSprite;
+
+let dropSprite1;
+let dropSprite2;
+let dropSprite3;
+
+//TowerSprites
+let towerSprite1;
+let towerSprite2;
+let towerSprite3;
+let towerSprite4;
+
+//Cursor Sprites
+let unclickedCursor;
+let clickedCursor;
+
+//Sounds
+let clickSound;
+let deathSound;
+let backgroundMusic;
+let levelUp;
+let pickupSound;
+
 function preload(){
   //Game Sprites
  playerSprite = loadImage("Assets/Sprites/PinkLord2.png");
@@ -99,6 +150,12 @@ function draw() {
   //Game UI
   gameMenu.ui();
 
+  //Bullet
+  for(let i = 0; i < bullets.length; i++) {
+    bullets[i].display();
+    bullets[i].move();
+  }
+
   //Abilities
   //Force Pull abilty by pressing "E"
   if(level>=3){
@@ -117,6 +174,7 @@ function draw() {
     newPlayer.sprint();
     newPlayer.sprintDisplay();
   }
+  checkKeyPresses()
 }
 //Draw Ends Here
 
@@ -154,7 +212,16 @@ function gameDrops(){
    }
   }
     
-  
+  function checkKeyPresses() {
+    if(bulletTic === bulletTicMax) {
+    if(keyIsDown(32)){
+      bullets.push(new Bullet(newPlayer.x,newPlayer.y));
+      bulletTic = 0;
+    }
+  }else{
+    bulletTic++;
+  }
+}
 
 //click sound
   function mousePressed() {
@@ -186,57 +253,3 @@ function gameDrops(){
       enemyMultiplier -= 0.05;
     }
   }
-
-
-//variables
-let playGame;
-let towers = [];
-let enemies = [];
-let bullets = [];
-let newDrop = [];
-let nextLvl = 20;
-let score = 0;
-let level = 1;
-let timer = 0;
-let gameControls = [87,83,65,68,69,16,32] //w,a,s,d,e,"shift","space"
-
-//Sprites
-let groundSprite;
-let playerSprite;
-let playerSprite2;
-let itemSprite;
-let screenOverlay;
-
-let enemySprite1;
-let enemySprite2;
-let enemySprite3;
-let enemySprite4;
-
-let shrinkSprite;
-let pullSprite;
-let sprintSprite;
-
-let dropSprite1;
-let dropSprite2;
-let dropSprite3;
-
-//TowerSprites
-let towerSprite1;
-let towerSprite2;
-let towerSprite3;
-let towerSprite4;
-
-//Cursor Sprites
-let unclickedCursor;
-let clickedCursor;
-
-//Sounds
-let clickSound;
-let deathSound;
-let backgroundMusic;
-let levelUp;
-let pickupSound;
-
-
-
-
