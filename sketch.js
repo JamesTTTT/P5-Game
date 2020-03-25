@@ -4,6 +4,7 @@ function preload(){
  playerSprite2 = loadImage("Assets/Sprites/PinkLord.png");
  groundSprite = loadImage("Assets/Sprites/Ground.png");
  itemSprite = loadImage("Assets/Sprites/Crimson.png");
+ dropSprite = loadImage("Assets/Sprites/ScoreDrop.png");
 
  enemySprite1 = loadImage("Assets/Sprites/enemy/DeathBall.png");
  enemySprite2 = loadImage("Assets/Sprites/enemy/FamineBall.png");
@@ -30,6 +31,7 @@ function preload(){
  deathSound = loadSound("Assets/SFX/deathbe.mp3");
  backgroundMusic = loadSound("Assets/SFX/gamemusic.mp3");
  levelUp = loadSound("Assets/SFX/levelup.wav");
+ pickupSound = loadSound("Assets/SFX/coin.wav"); 
 }
 
 function setup() {
@@ -55,6 +57,12 @@ function draw() {
   noStroke();
   image(groundSprite,0,0);
   
+  //drops
+  for(let i= 0; i<newDrop.length; i++){
+    newDrop[i].display();
+    newDrop[i].claimDrop()
+    }
+  
   //Player
   newPlayer.display();
   newPlayer.move();
@@ -67,11 +75,6 @@ function draw() {
   enemies[i].display();
   enemies[i].move();
 }
-
-  //drops
-  for(let i= 0; i<newDrop.length; i++){
-  newDrop[i].display();
-  }
 
   //tower
   for(let i = 0; i < towers.length; i++) {
@@ -109,21 +112,34 @@ function draw() {
   }
 }
 //Draw Ends Here
+
+//Game Drops!
 let dropInterval = 13000;
 setInterval(gameDrops,dropInterval);
 function gameDrops(){
     newDrop.push(new drop(random(0, 720),random(140, 580)));
   }
 
+//Drops move
 
-//item controll
+
+//item+drop controll
   function mouseDragged() {
+  //Item move
   let d1 = dist(defaultItem.x,defaultItem.y,newCursor.x,newCursor.y);
    if(d1<60){
     defaultItem.interact(); 
    }
-    
+   //drop move
+    for(let i= 0; i<newDrop.length; i++){
+    let d2 = dist(newDrop[i].x,newDrop[i].y,newCursor.x,newCursor.y);
+    if(d2<32){
+      newDrop[i].move();
+    }
+   }
   }
+    
+  
 
 //click sound
   function mousePressed() {
@@ -173,6 +189,7 @@ let gameControls = [87,83,65,68,69,16,32] //w,a,s,d,e,"shift","space"
 let groundSprite;
 let playerSprite;
 let playerSprite2;
+let dropSprite;
 let itemSprite;
 let screenOverlay;
 
@@ -200,6 +217,7 @@ let clickSound;
 let deathSound;
 let backgroundMusic;
 let levelUp;
+let pickupSound;
 
 
 

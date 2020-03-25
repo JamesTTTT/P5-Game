@@ -33,6 +33,7 @@ class menu {
     play(){
         playGame.hide();
         enemies = [];
+        newDrop = [];
         bullets = [];
         score = 0; 
         level = 1;

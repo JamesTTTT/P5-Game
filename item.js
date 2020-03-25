@@ -51,7 +51,6 @@ class Item {
                 return true;
             }
             }
-            return false
         };
 
     }
