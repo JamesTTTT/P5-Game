@@ -39,6 +39,7 @@ function setup() {
   playGame = createButton('Play');
   gameMenu = new menu();
   newCursor = new hand();
+  newDrop = new drop();
   newPlayer = new Player(gameControls);
   defaultItem = new Item(gameControls);
   towers.push(new Tower(70,70,"topLeft"));
@@ -67,7 +68,10 @@ function draw() {
   enemies[i].display();
   enemies[i].move();
 }
-  
+
+  //drops
+  newDrop.display();
+
   //tower
   for(let i = 0; i < towers.length; i++) {
     towers[i].display();
@@ -103,8 +107,10 @@ function draw() {
     newPlayer.sprintDisplay();
   }
 }
-
 //Draw Ends Here
+
+
+
 
 //item controll
   function mouseDragged() {

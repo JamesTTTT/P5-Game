@@ -48,9 +48,10 @@ class Item {
             if(this.enemykill){
                 enemies.splice(i,1);
                 score += 10;
-                return true
+                return true;
             }
             }
+            return false
         };
 
     }

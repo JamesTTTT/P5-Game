@@ -64,6 +64,7 @@ class menu {
         fill(30)
         rect(260, 645, 200, 100);
         fill(255)
+        //Instructions
         if(level<3){
             text("Use WASD to move",this.x,665);
             text("Drag and Drop sword mith mouse",this.x,680);

@@ -6,6 +6,8 @@ class Enemy {
         this.r = 20;
         this.speed = 0.009;
         this.direction = -1;
+        this.deathPosX;
+        this.deathPosY;
         switch(this.spawn){
             case "topLeft":
                 this.targetX = newPlayer.x;
