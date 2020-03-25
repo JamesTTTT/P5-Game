@@ -15,6 +15,7 @@ let bulletTicMax = 60;
 //Sprites
 let groundSprite;
 let playerSprite;
+let bulletSprite;
 let playerSprite2;
 let itemSprite;
 let screenOverlay;
@@ -55,6 +56,7 @@ function preload(){
  playerSprite2 = loadImage("Assets/Sprites/PinkLord.png");
  groundSprite = loadImage("Assets/Sprites/Ground.png");
  itemSprite = loadImage("Assets/Sprites/Crimson.png");
+ bulletSprite = loadImage("Assets/Sprites/Bullet.png");
 
  //Drop Sprites
  dropSprite1 = loadImage("Assets/Sprites/drops/silverDrop.png");
@@ -212,9 +214,10 @@ function gameDrops(){
    }
   }
     
+  //GUN controls
   function checkKeyPresses() {
     if(bulletTic === bulletTicMax) {
-    if(keyIsDown(32)){
+    if(keyIsDown(gameControls[6])){
       bullets.push(new Bullet(newPlayer.x,newPlayer.y));
       bulletTic = 0;
     }
