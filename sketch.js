@@ -39,7 +39,6 @@ function setup() {
   playGame = createButton('Play');
   gameMenu = new menu();
   newCursor = new hand();
-  newDrop = new drop();
   newPlayer = new Player(gameControls);
   defaultItem = new Item(gameControls);
   towers.push(new Tower(70,70,"topLeft"));
@@ -70,7 +69,9 @@ function draw() {
 }
 
   //drops
-  newDrop.display();
+  for(let i= 0; i<newDrop.length; i++){
+  newDrop[i].display();
+  }
 
   //tower
   for(let i = 0; i < towers.length; i++) {
@@ -108,8 +109,11 @@ function draw() {
   }
 }
 //Draw Ends Here
-
-
+let dropInterval = 13000;
+setInterval(gameDrops,dropInterval);
+function gameDrops(){
+    newDrop.push(new drop(random(0, 720),random(140, 580)));
+  }
 
 
 //item controll
@@ -158,6 +162,7 @@ let playGame;
 let towers = [];
 let enemies = [];
 let bullets = [];
+let newDrop = [];
 let nextLvl = 20;
 let score = 0;
 let level = 1;
