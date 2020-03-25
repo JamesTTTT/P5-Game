@@ -6,9 +6,9 @@ function preload(){
  itemSprite = loadImage("Assets/Sprites/Crimson.png");
 
  //Drop Sprites
- dropSprite1 = loadImage("Assets/Sprites/drops/ScoreDropSilver.png");
- dropSprite2 = loadImage("Assets/Sprites/drops/ScoreDropGold.png");
- dropSprite3 = loadImage("Assets/Sprites/drops/ScoreDropDiamond.png");
+ dropSprite1 = loadImage("Assets/Sprites/drops/silverDrop.png");
+ dropSprite2 = loadImage("Assets/Sprites/drops/goldDrop.png");
+ dropSprite3 = loadImage("Assets/Sprites/drops/diamondDrop.png");
  
  //Enemy Sprites
  enemySprite1 = loadImage("Assets/Sprites/enemy/DeathBall.png");
@@ -73,6 +73,7 @@ function draw() {
   newPlayer.display();
   newPlayer.move();
   if (newPlayer.hitBox()){
+    deathSound.play();
     gameMenu.display();
   }
 
@@ -126,19 +127,16 @@ function gameDrops(){
   let dropSpawner = int(random(3));
   switch(dropSpawner){
     case 0: 
-    newDrop.push(new drop(random(0, 720),random(140, 580,"silver")));
+    newDrop.push(new drop(random(0, 720),random(140, 580),"silver"));
     break
     case 1: 
-    newDrop.push(new drop(random(0, 720),random(140, 580,"gold")));
+    newDrop.push(new drop(random(0, 720),random(140, 580),"gold"));
     break
     case 2:
-    newDrop.push(new drop(random(0, 720),random(140, 580,"diamond"))); 
+    newDrop.push(new drop(random(0, 720),random(140, 580),"diamond")); 
     break
   }
 }
-
-//Drops move
-
 
 //item+drop controll
   function mouseDragged() {

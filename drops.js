@@ -2,30 +2,32 @@ class drop{
     constructor(xPos,yPos,type){
         this.x = xPos;
         this.y = yPos;
+        this.type = type;
         this.size = 30;
         this.dropClaim = false;
         this.sprite = [dropSprite1,dropSprite2,dropSprite3];
         this.arraySelector;
 
-        switch(type){
+        switch(this.type){
             case "silver":
                 this.arraySelector = 0;
                 this.addScore = 5;
-            break;
+                break;
             case "gold":
                 this.arraySelector = 1;
                 this.addScore = 10;
-            break;
+                break;
             case "diamond":
                 this.arraySelector = 2;
                 this.addScore = 15;
-            break;
+                break;
         }
     }
     display(){
         push();
         translate(this.x, this.y);
-        image(this.sprite[this.arraySelector], -this.size/2, -this.size/2,);
+        console.log(this.arraySelector);
+        image(this.sprite[this.arraySelector], -this.size/2, -this.size/2);
         pop();
     }
     move(){
@@ -41,6 +43,6 @@ class drop{
                 score += this.addScore;
                 return true;
             }
-            }
+        }
     }
 }

@@ -25,7 +25,6 @@ class menu {
         playGame.size(100, 40);
         playGame.mousePressed(this.play)
         backgroundMusic.stop();
-        deathSound.play();
         image(this.sprite, 0, 0);
         pop();
         noLoop();
