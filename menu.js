@@ -5,6 +5,7 @@ class menu {
         this.height = 120;
         this.width = 200;
         this.signSize= 32;
+        this.fade= 0;
         this.overlaySprite = screenOverlay;
         this.logoSprite = gameLogo;
         this.abilitySprite1 = pullSprite;
@@ -71,11 +72,27 @@ class menu {
         textSize(13);
         text("Score:"+score,this.x,20);
         text("Level:"+level,this.x,34);
+
+        //LEVEL SYSTEM THAT ADDAS A LEVEL. AFTER THE NEXT LEVEL WILL REQUIRE DOUBLE SCORE
         if(score>nextLvl){
             level += 1;
             nextLvl *=2;
             levelUp.play();
+            this.fade = 255;
         }
+
+        //LEVEL UP TEXT
+        push();
+        textFont("Times-New-Roman");
+        textSize(45);
+        fill(203,12,255, this.fade);
+        text("Level Up",360,360);
+        pop();
+        //LEVEL UP FADE OUT
+        if (this.fade>1){
+            this.fade -=3
+        }
+
         fill(38,34,72,200);
         stroke(10);
         rect(260, 645, 200, 100);

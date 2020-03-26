@@ -74,6 +74,7 @@ function preload(){
  groundSprite = loadImage("Assets/Sprites/Ground.png");
  bulletSprite = loadImage("Assets/Sprites/Bullet.png");
 
+ //Weapon Sprites
  itemSprite = loadImage("Assets/Sprites/weapons/Crimson.png");
  itemSprite2 = loadImage("Assets/Sprites/weapons/Crystal.png");
  itemSprite3 = loadImage("Assets/Sprites/weapons/Emerald.png");
@@ -116,6 +117,7 @@ function preload(){
  enemySplat = loadSound("Assets/SFX/splat.wav")
 }
 
+//GAME SETUP
 function setup() {
   createCanvas(720, 720);
   frameRate(60);
@@ -135,7 +137,7 @@ function setup() {
   changeWeapon.hide();
 }
 
-
+//DRAWS MOST FEATURES.
 function draw() {
   //Game Background
   background(20);
@@ -146,7 +148,6 @@ function draw() {
   newPlayer.display();
   newPlayer.move();
 
-  
   //drops
   for(let i= 0; i<newDrop.length; i++){
     newDrop[i].display();
@@ -173,22 +174,22 @@ function draw() {
   newCursor.move();
 
   //Abilities
-  //Force Pull abilty by pressing "E"
+  //Force Pull abilty by pressing "E" after level 4
   if(level>=4){
     defaultItem.pull();
   }
 
-  //Shrink ability by pressing "Shift"
+  //Shrink ability by pressing "Shift" after level 5
   if(level>=5){
     newPlayer.shrink();
   }
 
-  //Sprint ability by pressing "Shift"
+  //Sprint ability by pressing "Shift" after level 6
   if(level>=6){
     newPlayer.sprint();
   }
 
-  //Gun ability by pressing "Space"
+  //Gun ability by pressing "Space" after level 7
   if(level>=7){
     checkKeyPresses();
     for(let i = 0; i < bullets.length; i++) {
@@ -201,6 +202,7 @@ function draw() {
   }
 
   //Game UI
+  //DISPLAYS UI AND RESETS GAME WHEN HITBOX ACTIVATES
   gameMenu.ui();
   gameMenu.abilitySigns();
   if(newPlayer.hitBox()){
@@ -211,6 +213,7 @@ function draw() {
 //Draw Ends Here
 
 //Game Drops!
+// SPAWNS A ONE OF THREE RANDOM DROPS EVERY 13 SECONDS
 let dropInterval = 13000;
 setInterval(gameDrops,dropInterval);
 function gameDrops(){
@@ -228,6 +231,7 @@ function gameDrops(){
   }
 }
 
+// DRAG AND DROP ITEMS WITHIN A CERTAIN DISTANCE
 //item+drop controll
   function mouseDragged() {
   //Item move
@@ -245,6 +249,7 @@ function gameDrops(){
   }
     
   //GUN controls
+  // WHEN PRESSING SPACE A BULLET WILL SPAWN IN BETWEEN DELAYS
   function checkKeyPresses() {
     if(bulletTic === bulletTicMax) {
     if(keyIsDown(gameControls[6])){
@@ -257,11 +262,13 @@ function gameDrops(){
 }
 
 //click sound
+// EVERY TIME MOUSE IS PRESSED A CLICK IS PLAYED
   function mousePressed() {
     clickSound.play();
   }
 
   //Enemy Spawning
+  // AN ENEMY WILL SPAWN FROM ONE OF FOUR LOCATIONS EVERY MOMENT BETWEEN INTERVALS. IT ADDS ONE SCORE EVERY SPAWN
   let enemyMultiplier = 1;
   let spawnInterval = 1000;
   setInterval(enemySpawn,spawnInterval*enemyMultiplier);
