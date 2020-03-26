@@ -28,6 +28,7 @@ let enemySprite4;
 let shrinkSprite;
 let pullSprite;
 let sprintSprite;
+let gunSprite;
 
 let dropSprite1;
 let dropSprite2;
@@ -80,10 +81,11 @@ function preload(){
  clickedCursor = loadImage("Assets/Sprites/ClickedCursor.png");
  screenOverlay = loadImage("Assets/Sprites/DirtyScreen.png");
 
- //Ability sprites
+ //Ability UI sprites
  pullSprite = loadImage("Assets/Sprites/ability/pull.png");
  sprintSprite = loadImage("Assets/Sprites/ability/sprint.png");
  shrinkSprite = loadImage("Assets/Sprites/ability/shrink.png");
+ gunSprite = loadImage("Assets/Sprites/ability/gun.png");
 
  //Sounds
  clickSound = loadSound("Assets/SFX/klick.wav");
@@ -151,32 +153,32 @@ function draw() {
 
   //Game UI
   gameMenu.ui();
-
-  //Bullet
-  for(let i = 0; i < bullets.length; i++) {
-    bullets[i].display();
-    bullets[i].move();
-  }
+  gameMenu.abilitySigns();
 
   //Abilities
   //Force Pull abilty by pressing "E"
-  if(level>=3){
+  if(level>=4){
     defaultItem.pull();
-    defaultItem.pullDisplay();
   }
 
   //Shrink ability by pressing "Shift"
   if(level>=5){
     newPlayer.shrink();
-    newPlayer.shrinkDisplay();
   }
 
   //Sprint ability by pressing "Shift"
   if(level>=6){
     newPlayer.sprint();
-    newPlayer.sprintDisplay();
   }
-  checkKeyPresses()
+
+  //Gun ability by pressing "Space"
+  if(level>=7){
+    checkKeyPresses();
+    for(let i = 0; i < bullets.length; i++) {
+      bullets[i].display();
+      bullets[i].move();
+    }
+  }
 }
 //Draw Ends Here
 
@@ -233,7 +235,7 @@ function gameDrops(){
 
   //Enemy Spawning
   let enemyMultiplier = 1;
-  let spawnInterval = 4000;
+  let spawnInterval = 1000;
   setInterval(enemySpawn,spawnInterval*enemyMultiplier);
   function enemySpawn(){
     let spawner = int(random(4));

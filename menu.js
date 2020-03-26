@@ -5,6 +5,11 @@ class menu {
         this.height = 120;
         this.width = 200;
         this.sprite = screenOverlay;
+        this.signSize= 32;
+        this.abilitySprite1 = pullSprite;
+        this.abilitySprite2 = sprintSprite;
+        this.abilitySprite3 = shrinkSprite;
+        this.abilitySprite4 = gunSprite;
     }
     display(){
         push()
@@ -38,7 +43,7 @@ class menu {
         level = 1;
         nextLvl = 20;
         enemyMultiplier = 1;
-        spawnInterval = 4000;
+        spawnInterval = 1000;
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         defaultItem.x =360;
@@ -65,25 +70,58 @@ class menu {
         rect(260, 645, 200, 100);
         fill(255)
         //Instructions
-        if(level<3){
+        if(level<4){
             text("Use WASD to move",this.x,665);
-            text("Drag and Drop sword mith mouse",this.x,680);
+            text("Drag and Drop items mith mouse",this.x,680);
         }
-        if(level>=3){
-            if(level<5){
-                text("Use E to summon sword",this.x,665); 
+        if(level===4){
+            text("Use E to summon sword",this.x,665); 
         }
+        if(level===5){
+            text("Use Shift to Shrink",this.x,665); 
         }
-        if(level >=5){
-            if(level<6){
-                text("Use Shift to Shrink",this.x,665); 
-        }
-        }
-        if(level>=6){
-            if(level<7){
-                text("Use Shift to Shrink+Sprint",this.x,665); 
-        }
+        if(level===6){
+            text("Use Shift to Shrink+Sprint",this.x,665); 
+        }   
+        if(level>=7){
+            text("Use Spacebar to shoot bullet",this.x,665);
+            text("Take aim mith mouse",this.x,680);
         }
         pop();
+    }
+
+    abilitySigns(){
+        //Pull abilitySign
+        if(level>=4){
+        push();
+        translate(255, 650);
+        image(this.abilitySprite1,this.signSize,this.signSize);
+        pop();
+        }
+
+        //Shrink abilitySign
+        if(level>=5){
+        push();
+        translate(295, 650);
+        image(this.abilitySprite2,this.signSize,this.signSize);
+        pop();
+        }
+
+        //Sprint abilitySign
+        if(level>=6){
+        push();
+        translate(335, 650);
+        image(this.abilitySprite3,this.signSize,this.signSize);
+        pop();
+        }
+
+        //Gun abilitySign
+        if(level>=7){
+        push();
+        translate(375,650);
+        image(this.abilitySprite4,this.signSize,this.signSize);
+        pop();
+    }
+
     }
 }

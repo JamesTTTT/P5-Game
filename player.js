@@ -8,9 +8,6 @@
         this.border = 15;
         this.sprite = playerSprite;
         this.sprite2 = playerSprite2;
-        this.abilitySprite1 = sprintSprite;
-        this.abilitySprite2 = shrinkSprite;
-        this.signSize = 32;
         this.enemyHit = false;
       }
 
@@ -59,13 +56,6 @@
       this.moveSpeed = 5;
     }
   }
-  sprintDisplay(){
-    push();
-    translate(315, 650);
-    image(this.abilitySprite1,this.signSize,this.signSize);
-    pop();
-  }
-
 
   shrink(){
     if(keyIsDown(gameControls[5])){
@@ -80,14 +70,8 @@
       image(this.sprite,-this.size/2,-this.size/2);
       pop();
       }
-
-      }
-      
-    shrinkDisplay(){
-      push();
-      translate(285, 650);
-      image(this.abilitySprite2,this.signSize,this.signSize);
-      pop();
-      }
     }
+      
+  }
+
 

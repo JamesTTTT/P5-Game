@@ -4,7 +4,7 @@ class Bullet {
         this.y = yPos;
         this.sprite = bulletSprite;
         this.size = 10;
-        this.speed = 5;
+        this.speed = 10;
         this.startDist = 30;
         this.location = createVector(newPlayer.x,newPlayer.y);
         this.target = createVector(newCursor.x, newCursor.y);
@@ -22,9 +22,7 @@ class Bullet {
         pop();
     }
     move(){
-
        this.x += this.direction.x*this.speed;
        this.y += this.direction.y*this.speed;
-
     }
 }

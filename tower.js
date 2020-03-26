@@ -4,7 +4,7 @@ class Tower {
         this.y = yPos;
         this.size = 128;
         this.position = pos;
-        this.sprite = [towerSprite1,towerSprite2,towerSprite3,towerSprite4]
+        this.sprite = [towerSprite1,towerSprite2,towerSprite3,towerSprite4];
         this.arraySelector;
 
         switch(this.position) {
@@ -24,7 +24,7 @@ class Tower {
     }
     display(){
         push();
-        translate(this.x, this.y)
+        translate(this.x, this.y);
         image(this.sprite[this.arraySelector], -this.size/2, -this.size/2,);
         pop();
     }
