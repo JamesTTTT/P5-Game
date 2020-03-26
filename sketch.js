@@ -74,10 +74,10 @@ function preload(){
  dropSprite3 = loadImage("Assets/Sprites/drops/diamondDrop.png");
  
  //Enemy Sprites
- enemySprite1 = loadImage("Assets/Sprites/enemy/DeathBall.png");
- enemySprite2 = loadImage("Assets/Sprites/enemy/FamineBall.png");
- enemySprite3 = loadImage("Assets/Sprites/enemy/PestilenceBall.png");
- enemySprite4 = loadImage("Assets/Sprites/enemy/WarBall.png");
+ enemySprite1 = loadImage("Assets/Sprites/enemy/DeathEnemy.png");
+ enemySprite2 = loadImage("Assets/Sprites/enemy/FamineEnemy.png");
+ enemySprite3 = loadImage("Assets/Sprites/enemy/PestilenceEnemy.png");
+ enemySprite4 = loadImage("Assets/Sprites/enemy/WarEnemy.png");
 
  //Tower Sprites
  towerSprite1= loadImage("Assets/Sprites/DeathTower.png");
@@ -178,13 +178,17 @@ function draw() {
   }
 
   //Gun ability by pressing "Space"
-  if(level>=2){
+  if(level>=7){
     checkKeyPresses();
     for(let i = 0; i < bullets.length; i++) {
       bullets[i].display();
       bullets[i].move();
+      if(bullets[i].hitBox()){
+        bullets.splice(i,1);
+      }
     }
   }
+
   //Game UI
   gameMenu.ui();
   gameMenu.abilitySigns();
@@ -254,16 +258,16 @@ function gameDrops(){
     let spawner = int(random(4));
     switch(spawner){
       case 0:
-        enemies.push(new Enemy(20,20,"topLeft"));
+        enemies.push(new Enemy(40,40,"topLeft"));
         break;
       case 1:
-        enemies.push(new Enemy(700,30,"topRight"));
+        enemies.push(new Enemy(680,40,"topRight"));
         break;
       case 2:
-        enemies.push(new Enemy(20,700,"bottomLeft"));
+        enemies.push(new Enemy(40,680,"bottomLeft"));
         break;
       case 3:
-        enemies.push(new Enemy(700,700,"bottomRight"));
+        enemies.push(new Enemy(680,680,"bottomRight"));
         break;
     }
     score += 1;

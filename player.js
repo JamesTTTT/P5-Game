@@ -3,7 +3,7 @@
         this.x = width/2;
         this.y = height/2;
         this.size = 100;
-        this.size2 = 64;
+        this.fixBox = 65;
         this.moveSpeed = 5;
         this.border = 15;
         this.sprite = playerSprite;
@@ -41,7 +41,7 @@
     }
     hitBox(){
       for (var i = 0; i < enemies.length; i++){
-      this.enemyHit = collideCircleCircle(this.x,this.y,this.size-75,enemies[i].x,enemies[i].y,enemies[i].r);
+      this.enemyHit = collideCircleCircle(this.x,this.y,this.size-this.fixBox,enemies[i].x,enemies[i].y,enemies[i].r);
       if(this.enemyHit){
         return true;
       };
@@ -61,12 +61,16 @@
     if(keyIsDown(gameControls[5])){
       push();
       translate(this.x, this.y);
-      image(this.sprite2,-this.size2/2,-this.size2/2);
+      this.fixBox = 45;
+      this.size = 64;
+      image(this.sprite2,-this.size/2,-this.size/2);
       pop();
     }
     else{
       push();
       translate(this.x,this.y);
+      this.fixBox = 65;
+      this.size = 100;
       image(this.sprite,-this.size/2,-this.size/2);
       pop();
       }

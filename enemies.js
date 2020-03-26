@@ -3,7 +3,7 @@ class Enemy {
         this.x=xSpawn;
         this.y=ySpawn;
         this.spawn = spawn;
-        this.r = 20;
+        this.r = 30;
         this.speed = 5;
         //this.direction = -1;
         this.sprite = [enemySprite1,enemySprite2,enemySprite3,enemySprite4];

@@ -3,7 +3,8 @@ class Bullet {
         this.x = xPos;
         this.y = yPos;
         this.sprite = bulletSprite;
-        this.size = 10;
+        this.enemyKill = false;
+        this.size = 20;
         this.speed = 10;
         this.startDist = 30;
         this.location = createVector(newPlayer.x,newPlayer.y);
@@ -24,5 +25,14 @@ class Bullet {
     move(){
        this.x += this.direction.x*this.speed;
        this.y += this.direction.y*this.speed;
+    }
+    hitBox(){
+        for (var i = 0; i < enemies.length; i++){
+        if(collideCircleCircle(this.x,this.y,this.size,enemies[i].x,enemies[i].y,enemies[i].r)){
+            enemies.splice(i,1);
+            score += 10;
+            return true;
+        }
+        }
     }
 }

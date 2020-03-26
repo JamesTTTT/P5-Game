@@ -39,7 +39,7 @@ class Item {
             this.enemykill = collideCircleCircle(this.x,this.y,this.size-30,enemies[i].x,enemies[i].y,enemies[i].r);
             if(this.enemykill){
                 enemies.splice(i,1);
-                score += 10;
+                score += 5;
                 return true;
             }
             }
