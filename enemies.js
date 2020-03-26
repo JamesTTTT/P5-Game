@@ -4,42 +4,42 @@ class Enemy {
         this.y=ySpawn;
         this.spawn = spawn;
         this.r = 20;
-        this.speed = 0.01;
-        this.direction = -1;
+        this.speed = 5;
+        //this.direction = -1;
         this.sprite = [enemySprite1,enemySprite2,enemySprite3,enemySprite4];
         this.arraySelector;
 
+        this.location = createVector(this.x,this.y);
+        this.target = createVector(newPlayer.x, newPlayer.y);
+        this.distance = this.target.dist(this.location);
+        this.mappedDistance = map(this.distance,0,100,1,0);
+        this.target.sub(this.location);
+        this.direction = this.target.normalize();
+
         switch(this.spawn){
             case "topLeft":
-                this.targetX = newPlayer.x;
-                this.targetY = newPlayer.y;
                 this.arraySelector = 0;
                 break;
             case "topRight":
-                this.targetX = newPlayer.x*this.direction;
-                this.targetY = newPlayer.y;
                 this.arraySelector = 1;
                 break;
             case "bottomLeft":
-                this.targetX = newPlayer.y*this.direction;
-                this.targetY = newPlayer.x;
                 this.arraySelector = 2;
                 break;
             case "bottomRight":
-                this.targetX = newPlayer.x*this.direction;
-                this.targetY = newPlayer.y*this.direction;
                 this.arraySelector = 3;
                 break;
     }
 }
     move(){
-        this.x += this.speed*this.targetX;
-        this.y += this.speed*this.targetY;
+        this.x += this.direction.x*this.speed;
+        this.y += this.direction.y*this.speed;
+
         if (this.x > width - this.r || this.x < this.r) {
-            this.targetX *= -1;
+            this.direction.x *= -1;
         }
         if (this.y > width - this.r || this.y < this.r) {
-            this.targetY *= -1;
+            this.direction.y *= -1;
         }
     }
     display(){
