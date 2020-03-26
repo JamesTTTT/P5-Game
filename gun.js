@@ -30,6 +30,7 @@ class Bullet {
         for (var i = 0; i < enemies.length; i++){
         if(collideCircleCircle(this.x,this.y,this.size,enemies[i].x,enemies[i].y,enemies[i].r)){
             enemies.splice(i,1);
+            enemySplat.play();
             score += 10;
             return true;
         }

@@ -1,6 +1,10 @@
 //variables
+
+//Buttons
 let playGame;
 let changeWeapon;
+
+//Random Variables
 let towers = [];
 let enemies = [];
 let bullets = [];
@@ -19,23 +23,28 @@ let playerSprite;
 let bulletSprite;
 let playerSprite2;
 
+//Item Sprites
 let itemSprite;
 let itemSprite2;
 let itemSprite3;
 
+//Ui overlays
 let screenOverlay;
 let gameLogo;
 
+//Enemy Sprites
 let enemySprite1;
 let enemySprite2;
 let enemySprite3;
 let enemySprite4;
 
+//Ability sign sprite
 let shrinkSprite;
 let pullSprite;
 let sprintSprite;
 let gunSprite;
 
+//Game Drop Sprites
 let dropSprite1;
 let dropSprite2;
 let dropSprite3;
@@ -56,6 +65,7 @@ let deathSound;
 let backgroundMusic;
 let levelUp;
 let pickupSound;
+let enemySplat;
 
 function preload(){
   //Game Sprites
@@ -99,10 +109,11 @@ function preload(){
 
  //Sounds
  clickSound = loadSound("Assets/SFX/klick.wav");
- deathSound = loadSound("Assets/SFX/deathbe.mp3");
- backgroundMusic = loadSound("Assets/SFX/gamemusic.mp3");
+ deathSound = loadSound("Assets/SFX/Dead.mp3");
+ backgroundMusic = loadSound("Assets/SFX/Music.mp3");
  levelUp = loadSound("Assets/SFX/levelup.wav");
  pickupSound = loadSound("Assets/SFX/coin.wav"); 
+ enemySplat = loadSound("Assets/SFX/splat.wav")
 }
 
 function setup() {

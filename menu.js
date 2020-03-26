@@ -14,7 +14,7 @@ class menu {
     }
     display(){
         push()
-        fill(38,34,72);
+        fill(38,34,72,200);
         strokeWeight(4);
         stroke(10);
         rect(this.x-100, this.y-50,this.width,this.height);
@@ -33,11 +33,9 @@ class menu {
         playGame.style('background-color',color(100, 115, 195));
         playGame.style('font-size','21px');
         playGame.style('font-family','Times-New-Roman')
-        playGame.mousePressed(this.play)
-        backgroundMusic.stop();
+        playGame.mousePressed(this.play);
 
         changeWeapon.hide();
-        //image(this.overlaySprite, 0, 0);
         image(this.logoSprite,50,80);
         pop();
         noLoop();
@@ -57,7 +55,6 @@ class menu {
         newPlayer.y = height/2;
         defaultItem.x =360;
         defaultItem.y =100;
-        //backgroundMusic.loop();
         deathSound.stop();
         loop();
     }
@@ -66,7 +63,7 @@ class menu {
         image(this.overlaySprite, 0, 0);
         strokeWeight(4);
         stroke(10);
-        fill(38,34,72);
+        fill(38,34,72,200);
         rect(330, 5, 80, 40);
         noStroke();
         fill(255);
@@ -79,7 +76,7 @@ class menu {
             nextLvl *=2;
             levelUp.play();
         }
-        fill(38,34,72);
+        fill(38,34,72,200);
         stroke(10);
         rect(260, 645, 200, 100);
         noStroke();
@@ -142,7 +139,7 @@ class menu {
         changeWeapon.show();
         changeWeapon.position(10,this.y-30);
         changeWeapon.size(65,40);
-        changeWeapon.style('background-color',color(100, 115, 195));
+        changeWeapon.style('background-color',color(100, 115, 195,200));
         changeWeapon.mousePressed(this.changeWeapon);
     }
     changeWeapon(){
