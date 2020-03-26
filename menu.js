@@ -51,7 +51,7 @@ class menu {
         level = 1;
         nextLvl = 20;
         enemyMultiplier = 1;
-        spawnInterval = 1000;
+        spawnInterval = 1500;
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         defaultItem.x =360;

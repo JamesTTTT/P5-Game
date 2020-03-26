@@ -190,7 +190,7 @@ function draw() {
   }
 
   //Gun ability by pressing "Space" after level 7
-  if(level>=7){
+  if(level>=2){
     checkKeyPresses();
     for(let i = 0; i < bullets.length; i++) {
       bullets[i].display();
@@ -270,7 +270,7 @@ function gameDrops(){
   //Enemy Spawning
   // AN ENEMY WILL SPAWN FROM ONE OF FOUR LOCATIONS EVERY MOMENT BETWEEN INTERVALS. IT ADDS ONE SCORE EVERY SPAWN
   let enemyMultiplier = 1;
-  let spawnInterval = 1000;
+  let spawnInterval = 1500;
   setInterval(enemySpawn,spawnInterval*enemyMultiplier);
   function enemySpawn(){
     let spawner = int(random(4));
