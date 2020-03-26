@@ -1,5 +1,6 @@
 //variables
 let playGame;
+let changeWeapon;
 let towers = [];
 let enemies = [];
 let bullets = [];
@@ -10,15 +11,20 @@ let level = 1;
 let timer = 0;
 let gameControls = [87,83,65,68,69,16,32] //w,a,s,d,e,"shift","space"
 let bulletTic = 0;
-let bulletTicMax = 60;
+let bulletTicMax = 15;
 
 //Sprites
 let groundSprite;
 let playerSprite;
 let bulletSprite;
 let playerSprite2;
+
 let itemSprite;
+let itemSprite2;
+let itemSprite3;
+
 let screenOverlay;
+let gameLogo;
 
 let enemySprite1;
 let enemySprite2;
@@ -56,8 +62,11 @@ function preload(){
  playerSprite = loadImage("Assets/Sprites/PinkLord2.png");
  playerSprite2 = loadImage("Assets/Sprites/PinkLord.png");
  groundSprite = loadImage("Assets/Sprites/Ground.png");
- itemSprite = loadImage("Assets/Sprites/Crimson.png");
  bulletSprite = loadImage("Assets/Sprites/Bullet.png");
+
+ itemSprite = loadImage("Assets/Sprites/weapons/Crimson.png");
+ itemSprite2 = loadImage("Assets/Sprites/weapons/Crystal.png");
+ itemSprite3 = loadImage("Assets/Sprites/weapons/Emerald.png");
 
  //Drop Sprites
  dropSprite1 = loadImage("Assets/Sprites/drops/silverDrop.png");
@@ -79,7 +88,8 @@ function preload(){
  //UI Sprites
  unclickedCursor = loadImage("Assets/Sprites/UnclickedCursor.png");
  clickedCursor = loadImage("Assets/Sprites/ClickedCursor.png");
- screenOverlay = loadImage("Assets/Sprites/DirtyScreen.png");
+ screenOverlay = loadImage("Assets/Sprites/overlay.png");
+ gameLogo = loadImage("Assets/Sprites/gameLogo.png");
 
  //Ability UI sprites
  pullSprite = loadImage("Assets/Sprites/ability/pull.png");
@@ -100,6 +110,7 @@ function setup() {
   frameRate(60);
   noCursor();
   playGame = createButton('Play');
+  changeWeapon = createButton('Change Weapon');
   gameMenu = new menu();
   newCursor = new hand();
   newPlayer = new Player(gameControls);
@@ -109,6 +120,8 @@ function setup() {
   towers.push(new Tower(70,650,"bottomLeft"));
   towers.push(new Tower(650,650,"bottomRight"));
   gameMenu.display();
+  gameMenu.changeBtn();
+  changeWeapon.hide();
 }
 
 
@@ -117,6 +130,11 @@ function draw() {
   background(20);
   noStroke();
   image(groundSprite,0,0);
+
+  //Player
+  newPlayer.display();
+  newPlayer.move();
+
   
   //drops
   for(let i= 0; i<newDrop.length; i++){
@@ -124,14 +142,6 @@ function draw() {
     newDrop[i].claimDrop()
     }
   
-  //Player
-  newPlayer.display();
-  newPlayer.move();
-  if (newPlayer.hitBox()){
-    deathSound.play();
-    gameMenu.display();
-  }
-
   //enemy
   for(let i= 0; i<enemies.length; i++){ 
   enemies[i].display();
@@ -151,10 +161,6 @@ function draw() {
   newCursor.display();
   newCursor.move();
 
-  //Game UI
-  gameMenu.ui();
-  gameMenu.abilitySigns();
-
   //Abilities
   //Force Pull abilty by pressing "E"
   if(level>=4){
@@ -172,12 +178,19 @@ function draw() {
   }
 
   //Gun ability by pressing "Space"
-  if(level>=7){
+  if(level>=2){
     checkKeyPresses();
     for(let i = 0; i < bullets.length; i++) {
       bullets[i].display();
       bullets[i].move();
     }
+  }
+  //Game UI
+  gameMenu.ui();
+  gameMenu.abilitySigns();
+  if(newPlayer.hitBox()){
+    deathSound.play();
+    gameMenu.display();
   }
 }
 //Draw Ends Here

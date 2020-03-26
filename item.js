@@ -7,13 +7,14 @@ class Item {
         this.r = 0;
         this.ease = 0.2;
         this.size=64;
-        this.sprite = itemSprite;
+        this.sprite = [itemSprite2,itemSprite,itemSprite3];
+        this.arraySelector = 0;
         this.enemykill = false;
     }
         display() {
             push();
             translate(this.x,this.y);
-            image(this.sprite,-this.size/2,-this.size/2);
+            image(this.sprite[this.arraySelector],-this.size/2,-this.size/2);
             pop();
         };
 

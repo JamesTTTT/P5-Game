@@ -4,8 +4,9 @@ class menu {
         this.y = height/2;
         this.height = 120;
         this.width = 200;
-        this.sprite = screenOverlay;
         this.signSize= 32;
+        this.overlaySprite = screenOverlay;
+        this.logoSprite = gameLogo;
         this.abilitySprite1 = pullSprite;
         this.abilitySprite2 = sprintSprite;
         this.abilitySprite3 = shrinkSprite;
@@ -13,12 +14,13 @@ class menu {
     }
     display(){
         push()
-        fill(30);
-        stroke(200);
+        fill(38,34,72);
+        strokeWeight(4);
+        stroke(10);
         rect(this.x-100, this.y-50,this.width,this.height);
         noStroke();
-        fill(255,0,127);
-        textFont("Calibri");
+        fill(203,12,255);
+        textFont("Times-New-Roman");
         textAlign(CENTER);
         textSize(20);
         text("Death Be Upon You",360,335);
@@ -28,14 +30,21 @@ class menu {
         playGame.show();
         playGame.position(this.x-50, this.y-12);
         playGame.size(100, 40);
+        playGame.style('background-color',color(100, 115, 195));
+        playGame.style('font-size','21px');
+        playGame.style('font-family','Times-New-Roman')
         playGame.mousePressed(this.play)
         backgroundMusic.stop();
-        image(this.sprite, 0, 0);
+
+        changeWeapon.hide();
+        //image(this.overlaySprite, 0, 0);
+        image(this.logoSprite,50,80);
         pop();
         noLoop();
     }
     play(){
         playGame.hide();
+        changeWeapon.show();
         enemies = [];
         newDrop = [];
         bullets = [];
@@ -54,8 +63,12 @@ class menu {
     }
     ui(){
         push();
-        fill(30);
+        image(this.overlaySprite, 0, 0);
+        strokeWeight(4);
+        stroke(10);
+        fill(38,34,72);
         rect(330, 5, 80, 40);
+        noStroke();
         fill(255);
         textAlign(CENTER);
         textSize(13);
@@ -66,8 +79,10 @@ class menu {
             nextLvl *=2;
             levelUp.play();
         }
-        fill(30)
+        fill(38,34,72);
+        stroke(10);
         rect(260, 645, 200, 100);
+        noStroke();
         fill(255)
         //Instructions
         if(level<4){
@@ -122,6 +137,23 @@ class menu {
         image(this.abilitySprite4,this.signSize,this.signSize);
         pop();
     }
+    }
+    changeBtn(){
+        changeWeapon.show();
+        changeWeapon.position(10,this.y-30);
+        changeWeapon.size(65,40);
+        changeWeapon.style('background-color',color(100, 115, 195));
+        changeWeapon.mousePressed(this.changeWeapon);
+    }
+    changeWeapon(){
+        if(defaultItem.arraySelector === 0){
+            defaultItem.arraySelector = 1;
+        }
+        else if(defaultItem.arraySelector === 1){
+            defaultItem.arraySelector = 2;
 
+        }else if(defaultItem.arraySelector === 2){
+            defaultItem.arraySelector = 0;
+        }
     }
 }
