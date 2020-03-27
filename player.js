@@ -11,6 +11,7 @@
         this.enemyHit = false;
       }
 
+      //IF UNDER LEVEL 5 (PRE SHRINK) IT WILL DISPLAY PLAYER SPRITE. 
       display() {
         if(level<5){
           push();
@@ -20,6 +21,7 @@
         }
       }
 
+      //MOVEMENT WITHIN GAME BORDERS
       move() {
       //W
       if(keyIsDown(gameControls[0])&&this.y>this.border){
@@ -39,6 +41,8 @@
       }
 
     }
+
+    //HITBOX FOR COLLIDING WITH ENEMIES
     hitBox(){
       for (var i = 0; i < enemies.length; i++){
       this.enemyHit = collideCircleCircle(this.x,this.y,this.size-this.fixBox,enemies[i].x,enemies[i].y,enemies[i].r);
@@ -48,7 +52,7 @@
     }
   }
 
-
+  //SPRINT ABILITY. WHEN PRESSIGN SHIFT SPEED WILL INCREASE TO 7
   sprint(){
     if(keyIsDown(gameControls[5])){
       this.moveSpeed = 7;
@@ -57,6 +61,7 @@
     }
   }
 
+  // SHRINK ABILITY. WHEN PRESSING SHIFT SPRITE AND SIZE WILL CHANGE
   shrink(){
     if(keyIsDown(gameControls[5])){
       push();
@@ -64,6 +69,8 @@
       this.fixBox = 45;
       this.size = 64;
       image(this.sprite2,-this.size/2,-this.size/2);
+      
+      //MAKING CURSOR UNAVAILABLE WHEN USING SHIFT TO BALANCE GAME
       newCursor.x=this.x;
       newCursor.y=this.y;
       pop();

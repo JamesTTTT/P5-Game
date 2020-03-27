@@ -35,7 +35,7 @@ Download the http-server NPM package
 
 >npm install http-server -g
 
-### Run the http-server Server
+### Run the http-server
  Start the terminal in the game directory and write:
 
  >http-server

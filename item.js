@@ -18,11 +18,13 @@ class Item {
             pop();
         };
 
+        //WHEN ACTIVATED ITEM FOLLOWS MOUSE
         interact() {
             this.x = mouseX;
             this.y = mouseY;
         };
 
+        // PULL ABILITY WHEN PRESSING E 
         pull(){
             this.targetX = newCursor.x;
             this.targetY = newCursor.y;
@@ -34,6 +36,7 @@ class Item {
             }
         };
 
+        //ITEM HITBOX FOR KILLING ENEMY
         hitBox(){
             for (var i = 0; i < enemies.length; i++){
             if(collideCircleCircle(this.x,this.y,this.size-30,enemies[i].x,enemies[i].y,enemies[i].r)){

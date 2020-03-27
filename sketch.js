@@ -121,11 +121,16 @@ function preload(){
 
 //GAME SETUP
 function setup() {
+  //STATING SIZE, FRAMERATE AND CURSOR VISABILITY 
   createCanvas(720, 720);
   frameRate(60);
   noCursor();
+
+  //BUTTONS 
   playGame = createButton('Play');
   changeWeapon = createButton('Change Weapon');
+
+  //GAME OBJECTS THAT ARE ONLY CREATED ONCE
   gameMenu = new menu();
   newCursor = new hand();
   newPlayer = new Player(gameControls);
@@ -134,48 +139,54 @@ function setup() {
   towers.push(new Tower(650,70,"topRight"));
   towers.push(new Tower(70,650,"bottomLeft"));
   towers.push(new Tower(650,650,"bottomRight"));
+
+  //CHANGE WEAPON BUTTON
   gameMenu.display();
   gameMenu.changeBtn();
   changeWeapon.hide();
-}
 
-//DRAWS MOST FEATURES.
+  //VOLUME
+  backgroundMusic.setVolume(0.3);
+  deathSound.setVolume(0.3);
+}
+//SETUP ENDS HERE
+
 function draw() {
-  //Game Background
+  //GAME BACKGROUND SETTINGS
   background(20);
   noStroke();
   image(groundSprite,0,0);
 
-  //Player
+  //PLAYER
   newPlayer.display();
   newPlayer.move();
 
-  //drops
+  //IN GAME DROPS
   for(let i= 0; i<newDrop.length; i++){
     newDrop[i].display();
     newDrop[i].claimDrop()
     }
   
-  //enemy
+  //ENEMY
   for(let i= 0; i<enemies.length; i++){ 
   enemies[i].display();
   enemies[i].move();
 }
 
-  //tower
+  //TOWER
   for(let i = 0; i < towers.length; i++) {
     towers[i].display();
   }
 
-  //item
+  //ITEM
   defaultItem.display();
   defaultItem.hitBox();
 
-  //Hand
+  //CURSOR
   newCursor.display();
   newCursor.move();
 
-  //Abilities
+  //ABILITIES
   //Force Pull abilty by pressing "E" after level 4
   if(level>=4){
     defaultItem.pull();
@@ -192,18 +203,19 @@ function draw() {
   }
 
   //Gun ability by pressing "Space" after level 7
-  if(level>=2){
+  if(level>=7){
     checkKeyPresses();
     for(let i = 0; i < bullets.length; i++) {
       bullets[i].display();
       bullets[i].move();
+      //AFTER BULLETS COLLIDE THEY WILL BE REMOVED
       if(bullets[i].hitBox()){
         bullets.splice(i,1);
       }
     }
   }
 
-  //Game UI
+  //GAME UI AFTER DEATH
   //DISPLAYS UI AND RESETS GAME WHEN HITBOX ACTIVATES
   gameMenu.ui();
   gameMenu.abilitySigns();
@@ -212,10 +224,11 @@ function draw() {
     gameMenu.display();
   }
 }
-//Draw Ends Here
+//DRAW ENDS HERE
 
 //Game Drops!
 // SPAWNS A ONE OF THREE RANDOM DROPS EVERY 13 SECONDS
+// SPAWN  LOCATION IS RANDOM
 let dropInterval = 13000;
 setInterval(gameDrops,dropInterval);
 function gameDrops(){
@@ -233,7 +246,7 @@ function gameDrops(){
   }
 }
 
-// DRAG AND DROP ITEMS WITHIN A CERTAIN DISTANCE
+// DRAG AND DROP ITEMS WITHIN A CERTAIN DISTANCE OF THE ITEM
 //item+drop controll
   function mouseDragged() {
   //Item move
@@ -272,7 +285,7 @@ function gameDrops(){
   //Enemy Spawning
   // AN ENEMY WILL SPAWN FROM ONE OF FOUR LOCATIONS EVERY MOMENT BETWEEN INTERVALS. IT ADDS ONE SCORE EVERY SPAWN
   let enemyMultiplier = 1;
-  let spawnInterval = 1500;
+  let spawnInterval = 1000;
   setInterval(enemySpawn,spawnInterval*enemyMultiplier);
   function enemySpawn(){
     let spawner = int(random(4));
@@ -291,6 +304,7 @@ function gameDrops(){
         break;
     }
     score += 1;
+    //ENEMY SPAWN MULTIPLIER
     if(enemyMultiplier>0.4){
       enemyMultiplier -= 0.05;
     }

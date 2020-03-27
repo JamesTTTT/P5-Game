@@ -8,6 +8,7 @@ class drop{
         this.sprite = [dropSprite1,dropSprite2,dropSprite3];
         this.arraySelector;
 
+        //DECIDES EACH TYPE OF DROP WORTH AND SPRITE
         switch(this.type){
             case "silver":
                 this.arraySelector = 0;
@@ -23,16 +24,19 @@ class drop{
                 break;
         }
     }
+    // DISPLAYS SPRITE WITH CORRECT SPRITE
     display(){
         push();
         translate(this.x, this.y);
         image(this.sprite[this.arraySelector], -this.size/2, -this.size/2);
         pop();
     }
+    //MOVEMENT FOR DRAGGING
     move(){
         this.x = mouseX;
         this.y = mouseY;
     }
+    //COLLIDES FOR DROP AND PLAYER. WHEN COLLIDED IT CLAIMS THE SCORE
     claimDrop(){
         for (var i = 0; i < newDrop.length; i++){
             if(collideCircleCircle(this.x,this.y,this.size,newPlayer.x,newPlayer.y,newPlayer.size-newPlayer.fixBox)){

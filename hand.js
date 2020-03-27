@@ -6,6 +6,7 @@ class hand {
     this.unclickedSprite = unclickedCursor;
     this.clickedSprite = clickedCursor;
   }
+  //DISPLAYS CURSOR SPRITE OVER MOUSE. SPRITE CHAGES WHETER YOU CLICK OR NOT
   display(){
     if(mouseIsPressed) {
       if (mouseButton === LEFT){  
@@ -21,6 +22,7 @@ class hand {
       pop();
     }
   };
+  //MOVEMENT WHEN MOVING MOUSE
   move(){
     this.x = mouseX;
     this.y = mouseY;

@@ -15,6 +15,7 @@ class menu {
     }
     display(){
         push()
+        //DEATH SCREEN
         fill(38,34,72,200);
         strokeWeight(4);
         stroke(10);
@@ -28,20 +29,27 @@ class menu {
         textSize(20);
         text("Score:"+score,360,412);
 
+        //PLAY-BUTTON DETAILS
         playGame.show();
         playGame.position(this.x-50, this.y-12);
         playGame.size(100, 40);
         playGame.style('background-color',color(100, 115, 195));
         playGame.style('font-size','21px');
-        playGame.style('font-family','Times-New-Roman')
+        playGame.style('font-family','Times-New-Roman');
+        //ACTIVATES PLAY FUNCTION BELOW
         playGame.mousePressed(this.play);
-
+        //CHANGE WEAPON BUTTON
         changeWeapon.hide();
+        //MUSIC STOP
+        backgroundMusic.stop();
+
+        //LOGO
         image(this.logoSprite,50,80);
         pop();
         noLoop();
     }
     play(){
+        //HIDES BUTTONS, RESETS GAME VALUES AND STARTS GAME
         playGame.hide();
         changeWeapon.show();
         enemies = [];
@@ -51,14 +59,17 @@ class menu {
         level = 1;
         nextLvl = 20;
         enemyMultiplier = 1;
-        spawnInterval = 1500;
+        spawnInterval = 1000;
         newPlayer.x = width/2;
         newPlayer.y = height/2;
         defaultItem.x =360;
         defaultItem.y =100;
+        backgroundMusic.setVolume(0.4);
+        backgroundMusic.loop();
         deathSound.stop();
         loop();
     }
+    //IN GAME UI
     ui(){
         push();
         image(this.overlaySprite, 0, 0);
@@ -98,7 +109,7 @@ class menu {
         rect(260, 645, 200, 100);
         noStroke();
         fill(255)
-        //Instructions
+        //INSTRUCTIONS CHANGE AFTER LEVELING UP
         if(level<4){
             text("Use WASD to move",this.x,665);
             text("Drag and Drop items mith mouse",this.x,680);
@@ -119,7 +130,7 @@ class menu {
         }
         pop();
     }
-
+    // SHOWS THE SIGNS OF WHAT ABILITY YOU UNLOCKED
     abilitySigns(){
         //Pull abilitySign
         if(level>=4){
@@ -153,13 +164,16 @@ class menu {
         pop();
     }
     }
+    //BUTTON FOR CHANGING SWORD SPRITE
     changeBtn(){
         changeWeapon.show();
         changeWeapon.position(10,this.y-30);
         changeWeapon.size(65,40);
         changeWeapon.style('background-color',color(100, 115, 195,200));
+        //WHEN PRESSED ACTIVATES changeWeapon FUNCTION
         changeWeapon.mousePressed(this.changeWeapon);
     }
+    // CHOOSES WEAPON USING ARRAY SELECTOR
     changeWeapon(){
         buttonSound.play();
         if(defaultItem.arraySelector === 0){

@@ -8,6 +8,7 @@ class Enemy {
         this.sprite = [enemySprite1,enemySprite2,enemySprite3,enemySprite4];
         this.arraySelector;
 
+        //STATES ENEMY MOVEMENT
         this.location = createVector(this.x,this.y);
         this.target = createVector(newPlayer.x, newPlayer.y);
         this.distance = this.target.dist(this.location);
@@ -15,6 +16,7 @@ class Enemy {
         this.target.sub(this.location);
         this.direction = this.target.normalize();
 
+        //ARRAY SELECTOR CHOOSES CORRECT SPRITE ACCORDING TO SPAWN POSITION
         switch(this.spawn){
             case "topLeft":
                 this.arraySelector = 0;
@@ -30,6 +32,7 @@ class Enemy {
                 break;
     }
 }
+    //USES THE ABOVE STATED MOVEMENT AND WILL CHANGE DIRECTION WHEN COLLIDING WITH WALLS
     move(){
         this.x += this.direction.x*this.speed;
         this.y += this.direction.y*this.speed;
@@ -41,6 +44,7 @@ class Enemy {
             this.direction.y *= -1;
         }
     }
+    //DISPLAYS THE SPRIT IN CENTER OF OBJECT
     display(){
         push();
         translate(this.x, this.y);
