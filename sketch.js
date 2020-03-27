@@ -233,7 +233,7 @@ function draw() {
 //Game Drops!
 // SPAWNS A ONE OF THREE RANDOM DROPS EVERY 13 SECONDS
 // SPAWN  LOCATION IS RANDOM
-let dropInterval = 13000;
+let dropInterval = 5000;
 setInterval(gameDrops,dropInterval);
 function gameDrops(){
   let dropSpawner = int(random(3));
