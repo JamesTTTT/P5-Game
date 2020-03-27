@@ -64,6 +64,8 @@
       this.fixBox = 45;
       this.size = 64;
       image(this.sprite2,-this.size/2,-this.size/2);
+      newCursor.x=this.x;
+      newCursor.y=this.y;
       pop();
     }
     else{

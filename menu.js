@@ -108,6 +108,7 @@ class menu {
         }
         if(level===5){
             text("Use Shift to Shrink",this.x,665); 
+            text("shift will disable cursor",this.x,680);
         }
         if(level===6){
             text("Use Shift to Shrink+Sprint",this.x,665); 

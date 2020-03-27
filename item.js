@@ -36,8 +36,7 @@ class Item {
 
         hitBox(){
             for (var i = 0; i < enemies.length; i++){
-            this.enemykill = collideCircleCircle(this.x,this.y,this.size-30,enemies[i].x,enemies[i].y,enemies[i].r);
-            if(this.enemykill){
+            if(collideCircleCircle(this.x,this.y,this.size-30,enemies[i].x,enemies[i].y,enemies[i].r)){
                 enemies.splice(i,1);
                 enemySplat.play();
                 score += 5;
