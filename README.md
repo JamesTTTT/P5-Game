@@ -2,7 +2,7 @@
 
 # SPIRITUS EST
 
-Spritus Est is latin for the spirit and the title for this game
+Spiritus Est is latin for the spirit and the title for this game
 
 ## Game Controls Explained
 
