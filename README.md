@@ -2,12 +2,12 @@
 
 # SPIRITUS EST
 
-Spiritus Est is latin for the spirit and the title for this game
+Spiritus Est is latin for "the spirit" and the title for this game
 
 ## Game Controls Explained
 
-Use your "WASD" keys to move up,down,left,right and use your mouse cursor to
-drag and drop items like the Sword and Score Coins.
+Use your "WASD" keys to move "up","down","left","right" and use your mouse cursor to
+drag and drop items like the Sword and Score Coins. After unlocking abilities the additional keys "E" "Shift" and "Space" will be used. 
 
 ## How To Play
 
