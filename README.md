@@ -13,7 +13,7 @@ drag and drop items like the Sword and Score Coins.
 
 - The four towers in each corner will send out enemies in your direction, if you dont dodge the incoming enemy you will lose the game. 
 
-- The enemmies can be destroyed by hitting them with your sword. 
+- The enemies can be destroyed by hitting them with your sword. 
 
 - Every enemy killed with the sword will grant 5 score and every enemy spawned will grant 1. 
 
@@ -21,13 +21,13 @@ drag and drop items like the Sword and Score Coins.
 
 - Score gained from playing will make you level up and unlock new abilities.
 
-- To Find out what your abilities do and how to use 'em look at the instructions at the center bottom of the screen.
+- To find out what your abilities do and how to use 'em look at the instructions at the center bottom of the screen.
 
 - There are 4 abilities Pull, Shrink, Sprint and Gun
 
 - When using the gun you will score double the points when killing an enemy
 
-- You can change your sword by pressing the "Change Weapon" button on the left (only chnages the look)
+- You can change your sword by pressing the "Change Weapon" button on the left (only changes the look)
 
 # How to get the game up and running with http-server
 
@@ -40,4 +40,4 @@ Download the http-server NPM package
 
  >http-server
 
- Afterwrads open the link: [http://127.0.0.1:8080](http://127.0.0.1:8080);
+ Afterwards use the link: [http://127.0.0.1:8080](http://127.0.0.1:8080)
