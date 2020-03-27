@@ -160,6 +160,7 @@ class menu {
         changeWeapon.mousePressed(this.changeWeapon);
     }
     changeWeapon(){
+        buttonSound.play();
         if(defaultItem.arraySelector === 0){
             defaultItem.arraySelector = 1;
         }

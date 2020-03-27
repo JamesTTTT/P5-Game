@@ -66,6 +66,7 @@ let backgroundMusic;
 let levelUp;
 let pickupSound;
 let enemySplat;
+let buttonSound;
 
 function preload(){
   //Game Sprites
@@ -114,7 +115,8 @@ function preload(){
  backgroundMusic = loadSound("Assets/SFX/Music.mp3");
  levelUp = loadSound("Assets/SFX/levelup.wav");
  pickupSound = loadSound("Assets/SFX/coin.wav"); 
- enemySplat = loadSound("Assets/SFX/splat.wav")
+ enemySplat = loadSound("Assets/SFX/splat.wav");
+ buttonSound = loadSound("Assets/SFX/Button.wav");
 }
 
 //GAME SETUP
