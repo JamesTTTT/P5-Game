@@ -164,7 +164,11 @@ function draw() {
   //IN GAME DROPS
   for(let i= 0; i<newDrop.length; i++){
     newDrop[i].display();
-    newDrop[i].claimDrop()
+    newDrop[i].claimDrop();
+    //Fixed 
+    if(newDrop[i].claimDrop()){
+      newDrop.splice(i,1);
+    }
     }
   
   //ENEMY

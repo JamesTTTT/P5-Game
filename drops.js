@@ -40,7 +40,6 @@ class drop{
     claimDrop(){
         for (var i = 0; i < newDrop.length; i++){
             if(collideCircleCircle(this.x,this.y,this.size,newPlayer.x,newPlayer.y,newPlayer.size-newPlayer.fixBox)){
-                newDrop.splice(i,1);
                 pickupSound.play();
                 score += this.addScore;
                 return true;
