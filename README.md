@@ -40,4 +40,4 @@ Download the http-server NPM package
 
  >http-server
 
- Afterwrads open the link: [http://127.0.0.1:8080]](http://127.0.0.1:8080)
+ Afterwrads open the link: [http://127.0.0.1:8080](http://127.0.0.1:8080);
