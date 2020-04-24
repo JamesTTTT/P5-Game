@@ -289,7 +289,7 @@ function gameDrops(){
   //Enemy Spawning
   // AN ENEMY WILL SPAWN FROM ONE OF FOUR LOCATIONS EVERY MOMENT BETWEEN INTERVALS. IT ADDS ONE SCORE EVERY SPAWN
   let enemyMultiplier = 1;
-  let spawnInterval = 1000;
+  let spawnInterval = 500;
   setInterval(enemySpawn,spawnInterval*enemyMultiplier);
   function enemySpawn(){
     let spawner = int(random(4));

@@ -69,10 +69,6 @@
       this.fixBox = 45;
       this.size = 64;
       image(this.sprite2,-this.size/2,-this.size/2);
-
-      //MAKING CURSOR UNAVAILABLE WHEN USING SHIFT TO BALANCE GAME
-      newCursor.x=this.x;
-      newCursor.y=this.y;
       pop();
     }
     else{
